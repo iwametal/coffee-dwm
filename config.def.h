@@ -5,7 +5,7 @@
 #define TERMCLASS "St"
 
 /* appearance */
-static unsigned int borderpx  = 3;        /* border pixel of windows */
+static unsigned int borderpx  = 1;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static unsigned int gappih    = 20;       /* horiz inner gap between windows */
 static unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -21,7 +21,7 @@ static char normbordercolor[] = "#4B4665";
 static char normfgcolor[]     = "#AD69AF";
 static char selfgcolor[]      = "#d1d7e1";
 static char selbordercolor[]  = "#84598D";
-static char selbgcolor[]      = "#005577";
+static char selbgcolor[]      = "#84598D";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -158,6 +158,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_Tab,		  spawn,		SHCMD("") }, */
 	{ MODKEY,			        XK_q,		          killclient,	 {0} },
 	{ MODKEY|ShiftMask,		XK_q,		          spawn,		   SHCMD("sysact") },
+	{ MODKEY|Mod1Mask,		XK_q,		          quit,	  	   {0} },
 	{ MODKEY,			        XK_w,		          spawn,		   SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,		XK_w,		          spawn,		   SHCMD(TERMINAL " -e sudo nmtui") },
 	/* { MODKEY,			        XK_e,		          spawn,		   SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */
