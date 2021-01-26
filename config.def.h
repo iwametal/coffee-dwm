@@ -1,7 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-/* Constants */
-#define TERMINAL "st"
+/* Constants */ #define TERMINAL "st"
 #define TERMCLASS "St"
 
 /* appearance */
@@ -53,11 +52,11 @@ static const Rule rules[] = {
 	{ "krita",       NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
 	{ "idea",        NULL,       NULL,       	    1 << 7,       0,           0,         0,        -1 },
 	{ "soapui",      NULL,       NULL,       	    1 << 6,       0,           0,         0,        -1 },
-	{ "ncmpcpp",     NULL,       NULL,       	    1 << 5,       0,           0,         0,        -1 },
-	{ "Discord",     NULL,       NULL,       	    1 << 3,       0,           0,         0,        -1 },
-	{ "lutris",      NULL,       NULL,       	    1 << 2,       0,           0,         0,        -1 },
-	{ "steam",       NULL,       NULL,       	    1 << 2,       0,           0,         0,        -1 },
-	{ "slack",       NULL,       NULL,       	    1 << 2,       0,           0,         0,        -1 },
+	{ "ncmpcpp",     NULL,       "ncmpcpp",  	    1 << 5,       0,           0,         0,        -1 },
+	{ "Discord",     NULL,       "Discord",  	    1 << 3,       0,           0,         0,        -1 },
+	{ "lutris",      NULL,       "Lutris",   	    1 << 2,       0,           0,         0,        -1 },
+	{ "steam",       NULL,       "Steam",    	    1 << 2,       0,           0,         0,        -1 },
+	{ "slack",       NULL,       "Slack",    	    1 << 2,       0,           0,         0,        -1 },
 	{ "brave",       NULL,       NULL,       	    1 << 1,       0,           0,         0,        -1 },
 	{ "chromium",    NULL,       NULL,       	    1 << 1,       0,           0,         0,        -1 },
 	{ "qutebrowser", NULL,       NULL,       	    1 << 1,       0,           0,         0,        -1 },
@@ -173,6 +172,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_q,		          spawn,		   SHCMD("sysact") },
 	{ MODKEY|Mod1Mask,		XK_q,		          quit,	  	   {0} },
 	{ MODKEY,			        XK_w,		          spawn,		   SHCMD("$BROWSER") },
+	{ MODKEY|ControlMask, XK_w,		          spawn,		   SHCMD("chromium") },
 	{ MODKEY|ShiftMask,		XK_w,		          spawn,		   SHCMD(TERMINAL " -e sudo nmtui") },
 	/* { MODKEY,			        XK_e,		          spawn,		   SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */
 	/* { MODKEY|ShiftMask,		XK_e,		          spawn,		   SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") }, */
@@ -199,13 +199,17 @@ static Key keys[] = {
 	{ MODKEY,			        XK_a,		          togglegaps,	  {0} },
 	{ MODKEY|ShiftMask,		XK_a,		          defaultgaps,  {0} },
 	{ MODKEY,			        XK_s,		          togglesticky, {0} },
+	{ MODKEY|ControlMask, XK_s,		          spawn,        SHCMD("slack") },
 	/* { MODKEY|ShiftMask,		XK_s,		spawn,		SHCMD("") }, */
 	{ MODKEY,			        XK_d,		          spawn,        SHCMD("dmenu_run") },
+	{ MODKEY|ControlMask, XK_d,		          spawn,        SHCMD("discord") },
 	/* { MODKEY,			XK_d,		spawn,		SHCMD("") } }, */
 	{ MODKEY,			        XK_f,		         togglefullscr,	{0} },
 	{ MODKEY|ShiftMask,		XK_f,		         setlayout,	    {.v = &layouts[8]} },
 	{ MODKEY,			        XK_g,		         shiftview,	    { .i = -1 } },
 	{ MODKEY|ShiftMask,		XK_g,		         shifttag,	    { .i = -1 } },
+	{ MODKEY|ControlMask, XK_g,            spawn, 		    SHCMD("steam") },
+	{ MODKEY|Mod1Mask,    XK_g,            spawn,		      SHCMD("lutris") },
 	{ MODKEY,			        XK_h,		         setmfact,	    {.f = -0.05} },
 	/* J and K are automatically bound above in STACKEYS */
 	{ MODKEY,			        XK_l,		         setmfact,      {.f = +0.05} },
