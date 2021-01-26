@@ -48,12 +48,25 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	*/
-	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-	{ "Gimp",     NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
-	{ TERMCLASS,   NULL,       NULL,       	    0,            0,           1,         0,        -1 },
-	{ NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
-	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
-	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
+	/* class       instance      title       	   tags mask    isfloating   isterminal  noswallow  monitor */
+	{ "Gimp",        NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
+	{ "krita",       NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
+	{ "idea",        NULL,       NULL,       	    1 << 7,       0,           0,         0,        -1 },
+	{ "soapui",      NULL,       NULL,       	    1 << 6,       0,           0,         0,        -1 },
+	{ "ncmpcpp",     NULL,       NULL,       	    1 << 5,       0,           0,         0,        -1 },
+	{ "Discord",     NULL,       NULL,       	    1 << 3,       0,           0,         0,        -1 },
+	{ "lutris",      NULL,       NULL,       	    1 << 2,       0,           0,         0,        -1 },
+	{ "steam",       NULL,       NULL,       	    1 << 2,       0,           0,         0,        -1 },
+	{ "slack",       NULL,       NULL,       	    1 << 2,       0,           0,         0,        -1 },
+	{ "brave",       NULL,       NULL,       	    1 << 1,       0,           0,         0,        -1 },
+	{ "chromium",    NULL,       NULL,       	    1 << 1,       0,           0,         0,        -1 },
+	{ "qutebrowser", NULL,       NULL,       	    1 << 1,       0,           0,         0,        -1 },
+	{ "firefox",     NULL,       NULL,       	    1 << 1,       0,           0,         0,        -1 },
+	{ "obs",         NULL,       NULL,       	    1,            0,           0,         0,        -1 },
+	{ TERMCLASS,     NULL,       NULL,       	    0,            0,           1,         0,        -1 },
+	{ NULL,          NULL,       "Event Tester",  0,            0,           0,         1,        -1 },
+	{ NULL,          "spterm",   NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
+	{ NULL,          "spcalc",   NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
 };
 
 /* layout(s) */
