@@ -52,7 +52,7 @@ static const Rule rules[] = {
 	{ "krita",       NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
 	{ "idea",        NULL,       NULL,       	    1 << 7,       0,           0,         0,        -1 },
 	{ "soapui",      NULL,       NULL,       	    1 << 6,       0,           0,         0,        -1 },
-	{ "ncmpcpp",     NULL,       "ncmpcpp",  	    1 << 5,       0,           0,         0,        -1 },
+	{ "ncmpcpp",     NULL,       "ncmpcpp",  	    1 << 4,       0,           0,         0,        -1 },
 	{ "Discord",     NULL,       "Discord",  	    1 << 3,       0,           0,         0,        -1 },
 	{ "lutris",      NULL,       "Lutris",   	    1 << 2,       0,           0,         0,        -1 },
 	{ "steam",       NULL,       "Steam",    	    1 << 2,       0,           0,         0,        -1 },
@@ -231,9 +231,13 @@ static Key keys[] = {
 	/* V is automatically bound above in STACKKEYS */
 	{ MODKEY,			        XK_b,		         togglebar,	    {0} },
 	/* { MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("") }, */
+	{ MODKEY|Mod1Mask|ControlMask, XK_c,   spawn,		      SHCMD(TERMINAL " sudo $HOME/.scripts/cache/drop_cache_full") },
+	{ MODKEY|Mod1Mask|ControlMask, XK_s,   spawn,		      SHCMD(TERMINAL " sudo $HOME/.scripts/swap/drop_swap.sh") },
+	{ MODKEY|Mod1Mask|ControlMask, XK_m,   spawn,		      SHCMD(TERMINAL " sudo $HOME/.scripts/mount/external-devices/mount-ed.sh") },
+	{ MODKEY|Mod1Mask|ControlMask, XK_u,   spawn,		      SHCMD(TERMINAL " sudo $HOME/.scripts/umount/external-devices/umount-ed.sh") },
 	{ MODKEY,			        XK_n,		         spawn,		      SHCMD(TERMINAL " -e nvim -c VimwikiIndex") },
 	{ MODKEY|ShiftMask,		XK_n,		         spawn,		      SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
-	{ MODKEY,			        XK_m,		         spawn,		      SHCMD(TERMINAL " -e ncmpcpp") },
+	{ MODKEY,			        XK_m,		         spawn,		      SHCMD(TERMINAL " $HOME/.scripts/dwm/music/launch_ncmpcpp.sh") },
 	{ MODKEY|ShiftMask,		XK_m,		         spawn,		      SHCMD("pamixer -t") },
 	{ MODKEY,			        XK_comma,	       spawn,		      SHCMD("mpc prev") },
 	{ MODKEY|ShiftMask,		XK_comma,	       spawn,		      SHCMD("mpc seek 0%") },
@@ -262,7 +266,7 @@ static Key keys[] = {
 	/* { MODKEY,			XK_F12,		xrdb,		{.v = NULL } }, */
 	{ MODKEY,			        XK_space,	       zoom,		      {0} },
 	{ MODKEY|ShiftMask,		XK_space,	       togglefloating,{0} },
-	{ 0,				          XK_Print,	       spawn,		      SHCMD("flameshot full -p ~/Pictures/screenshot") },
+	{ 0,				          XK_Print,	       spawn,		      SHCMD("[[ ! -d \"$HOME/Pictures/screenshot\" ]] && mkdir -p \"$HOME/Pictures/screenshot\" && flameshot full -p $HOME/Pictures/screenshot || flameshot full -p $HOME/Pictures/screenshot") },
 	{ ControlMask,	      XK_Print,	       spawn,		      SHCMD("flameshot full -c") },
 	{ ShiftMask,			    XK_Print,	       spawn,		      SHCMD("flameshot gui") },
 	// { MODKEY,			        XK_Print,	       spawn,		      SHCMD("dmenurecord") },
