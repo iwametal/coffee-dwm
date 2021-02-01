@@ -241,7 +241,8 @@ For those who don't know, <Super> key is the "Windows key"
 ```
 
 ### MASTER WINDOW MANAGEMENT
-``` <Super> + H
+```
+<Super> + H
 	--> decrease the size of master window
 ```
 
