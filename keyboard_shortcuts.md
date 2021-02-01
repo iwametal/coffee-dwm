@@ -1,7 +1,7 @@
 # MY KEYBOARD SHORTCUTS
 
 ## JUST A NEWB NOTE BEFORE START
-For those who don't know, <Super> key is the "Windows key"
+For those who don't know, `<Super>` key is the `"Windows key"`
 
 ### ARROWS
 ```
