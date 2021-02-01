@@ -42,7 +42,7 @@ Well, of course, after so many configurations, some external programs were used 
 Actually, to see all the shortcuts defined in my DWM, you may just go to my [config.h](https://github.com/fresh-cappuccino/dwm/blob/master/config.h) file and see the keys list. But, to make it easier (and more readable too), I created a separated file with all the shortcuts I set [right here](https://github.com/fresh-cappuccino/dwm/blob/master/keyboard_shortcuts.md). So, you may follow this file to get into my k.s.
 
 ### <sup>layer 4.3</sup> SCRIPTS
-Actually, some of the commands I use in DWM, calls a script in my machine. So, for you to have fully access to my DWM commands, you also need those. Oh, but look at that, they are luckily also in my github, right [here](https://github.com/fresh-cappuccino/.scripts). Just clone that in your $HOME directory and be happy.
+Some of the commands I use in DWM, calls a script in my machine. So, for you to have fully access to my DWM commands, you also need those. Oh, but look at that, they are luckily also in my github, right [here](https://github.com/fresh-cappuccino/.scripts). Just clone that in your $HOME directory and be happy.
 #### <sup>layer 4.3.1</sup> IMPORTANT
 These scripts must be present in you $HOME directory, otherwise, you'll need to change the call for them inside DWM's [config.h](https://github.com/fresh-cappuccino/dwm/blob/master/config.h). Your choice.
 
