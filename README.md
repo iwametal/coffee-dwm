@@ -36,10 +36,10 @@ I use xorg as display server and xinitrc as my dwm launcher. If you want to chec
 
 So, without further ado, there are all the important things/notes about my DWM:
 ### <sup>layer 4.1</sup> DEPENDENCIES
-Well, of course, after so many configurations, some external programs were used in a couple parts of the code, such as in keyboard shortcuts definitions, for example. So, I made a list of all the dependencies needed for my DWM works 100%. And [there it is](https://github.com/fresh-cappuccino/dwm/blob/master/dependencies.iwa).
+Well, of course, after so many configurations, some external programs were used in a couple parts of the code, such as in keyboard shortcuts definitions, for example. So, I made a list of all the dependencies needed for my DWM works 100%. And [there it is](https://github.com/fresh-cappuccino/dwm/blob/master/dependencies.md).
 
 ### <sup>layer 4.2</sup> SHORTCUTS
-Actually, to see all the shortcuts defined in my DWM, you may just go to my [config.h](https://github.com/fresh-cappuccino/dwm/blob/master/config.h) file and see the keys list. But, to make it easier (and more readable too), I created a separated file with all the shortcuts I set [right here](https://github.com/fresh-cappuccino/dwm/blob/master/keyboard_shortcuts.iwa). So, you may follow this file to get into my k.s.
+Actually, to see all the shortcuts defined in my DWM, you may just go to my [config.h](https://github.com/fresh-cappuccino/dwm/blob/master/config.h) file and see the keys list. But, to make it easier (and more readable too), I created a separated file with all the shortcuts I set [right here](https://github.com/fresh-cappuccino/dwm/blob/master/keyboard_shortcuts.md). So, you may follow this file to get into my k.s.
 
 ### <sup>layer 4.3</sup> SCRIPTS
 Actually, some of the commands I use in DWM, calls a script in my machine. So, for you to have fully access to my DWM commands, you also need those. Oh, but look at that, they are luckily also in my github, right [here](https://github.com/fresh-cappuccino/.scripts). Just clone that in your $HOME directory and be happy.
