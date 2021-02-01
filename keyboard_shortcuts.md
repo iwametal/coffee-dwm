@@ -116,6 +116,12 @@ For those who don't know, <Super> key is the "Windows key"
 ```
 
 ```
+<Super> + Scroll_Lock
+	--> toggle screenkey
+	--> kill it or launch it
+```
+
+```
 <Super> + D
 	--> opens dmenu
 ```
@@ -332,12 +338,6 @@ Print
 ```
 <Shift> + Print
 	--> enter flameshot selection to take a print of a specific part of the screen
-```
-
-```
-<Super> + Scroll_Lock
-	--> toggle screenkey
-	--> kill it or launch it
 ```
 
 ### STICKY
