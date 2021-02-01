@@ -94,12 +94,12 @@ For those who don't know, <Super> key is the "Windows key"
 ```
 
 ```
-<Super> + <Alt> + <Control> + <Shift> + Q
+<Super> + <Alt> + <Control> + <Shift> + R
 	--> reboots the pc
 ```
 
 ```
-<Super> + <Alt> + <Control> + <Shift> + Q
+<Super> + <Alt> + <Control> + <Shift> + H
 	--> opens a halt menu for you to choose which action you want
 ```
 
