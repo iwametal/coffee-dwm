@@ -17,6 +17,7 @@
 * pulseaudio python
 * python-lxml
 * python-pip
+* ranger
 * screenkey
 * st
 * steam
@@ -32,5 +33,4 @@
 ## NECESSERY EXTERNAL PACKAGES
 * lf
 * nerd-fonts
-* ranger
 * slack-desktop
