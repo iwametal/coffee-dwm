@@ -62,7 +62,7 @@ aux=`[[ -d "$HOME/wallpaper" ]] && cd "$HOME/wallpaper" && ls "wall."{"jpeg","jp
 This script automatically sets a wallpaper called "wall" with any extension previously set/added. However, you must have only one wallpaper called "wall". If you have 2 files, one called wall.jpg and other called wall.png, the script will not set any wallpaper as a conflict had been detected.
 
 #### IMPORTAT...2
-You may already have noticed, but even my [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file being the one that loads my wallpaper, internally it is just calling a script called `setwallpaper.sh` inside my [.scripts](https://github.com/fresh-cappuccino/.scripts) directory. So, if you're not using my script folder, you need either to paste that script code directly in .xinitrc or implement your own wallpaper setting.
+You may already have noticed, but even my [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file being the one that loads my wallpaper, internally it is just calling a script called `setwallpaper.sh` inside my [.scripts](https://github.com/fresh-cappuccino/.scripts) directory. So, if you're not using my script folder, you need either to paste the script code directly in .xinitrc or implement your own wallpaper setting.
 
 * * If you want the wallpaper of prints above, it's just [here](https://github.com/fresh-cappuccino/linux-config/tree/master/wallpaper).
 
