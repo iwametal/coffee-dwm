@@ -180,6 +180,7 @@ static Key keys[] = {
 	/* { MODKEY,			        XK_e,		          spawn,		   SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */
 	/* { MODKEY|ShiftMask,		XK_e,		          spawn,		   SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") }, */
 	{ MODKEY,			        XK_r,		          spawn,		   SHCMD(TERMINAL " -e ranger") },
+	{ MODKEY|ControlMask, XK_r,		          spawn,		   SHCMD(TERMINAL " -e vifm") },
 	{ MODKEY|ShiftMask,		XK_r,		          spawn,		   SHCMD(TERMINAL " -e bashtop") },
 	{ MODKEY,			        XK_t,		          setlayout,	 {.v = &layouts[0]} }, /* tile */
 	{ MODKEY|ShiftMask,		XK_t,		          setlayout,	 {.v = &layouts[1]} }, /* bstack */

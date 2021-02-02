@@ -21,6 +21,7 @@
 * screenkey
 * st
 * steam
+* vifm
 * vim
 * wireless_tools
 * wpa_supplicant

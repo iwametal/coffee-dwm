@@ -3,6 +3,58 @@
 ## JUST A NEWB NOTE BEFORE START
 For those who don't know, `<Super>` key is the `"Windows key"`
 
+### APPLICATION LAUNCH
+```
+<Super> + [ENTER]
+	--> opens the terminal (st)
+```
+
+```
+<Super> + Scroll_Lock
+	--> toggle screenkey
+	--> kill it or launch it
+```
+
+```
+<Super> + D
+	--> opens dmenu
+```
+
+```
+<Super> + <Control> + D
+	--> opens discord
+```
+
+```
+<Super> + <Control> + G
+	--> opens steam
+```
+
+```
+<Super> + <Alt> + G
+	--> opens lutris
+```
+
+```
+<Super> + M
+	--> opens ncmpcpp
+```
+
+```
+<Super> + <Control> + S
+	--> opens slack
+```
+
+```
+<Super> + W
+	--> opens your default browser (uses the env $BROWSER)
+```
+
+```
+<Super> + <Control> + W
+	--> opens chromium
+```
+
 ### ARROWS
 ```
 <Super> + Left
@@ -58,6 +110,11 @@ For those who don't know, `<Super>` key is the `"Windows key"`
 	--> opens ranger
 ```
 
+```
+<Super> + <Control> + R
+	--> opens vifm
+```
+
 ### FULL SCREEN
 ```
 <Super> + F
@@ -107,58 +164,6 @@ For those who don't know, `<Super>` key is the `"Windows key"`
 ```
 <Super> + <Shift> + W
 	--> opens network manager wireless connection (nmtui)
-```
-
-### LAUNCH APPLICATION
-```
-<Super> + [ENTER]
-	--> opens the terminal (st)
-```
-
-```
-<Super> + Scroll_Lock
-	--> toggle screenkey
-	--> kill it or launch it
-```
-
-```
-<Super> + D
-	--> opens dmenu
-```
-
-```
-<Super> + <Control> + D
-	--> opens discord
-```
-
-```
-<Super> + <Control> + G
-	--> opens steam
-```
-
-```
-<Super> + <Alt> + G
-	--> opens lutris
-```
-
-```
-<Super> + M
-	--> opens ncmpcpp
-```
-
-```
-<Super> + <Control> + S
-	--> opens slack
-```
-
-```
-<Super> + W
-	--> opens your default browser (uses the env $BROWSER)
-```
-
-```
-<Super> + <Control> + W
-	--> opens chromium
 ```
 
 ### LAUNCH SCRIPTS
