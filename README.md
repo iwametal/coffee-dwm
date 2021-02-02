@@ -48,6 +48,7 @@ Well, that is pretty much it. I'd just like to put some important notes here:
 * All my interface initialization is being handle by my [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file, so it is interesting you take a look at it, as the scripts I have for initialization are being called there. For example, my dwm status bar is launch there, so, if you do not have it, your dwm bar will not have the scripts running. Another example is the wallpaper, that is also set there. So, look the end of the file and manage which lines you do or do not want in it.
 
 * Talking about wallpaper... Like said, my wallpaper is set by my [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file, and for that it searches for an image called wall.jpeg, wall.jpg or wall.png inside a directory called wallpaper. So, to set your wallpaper, just create a directory with the same name in your $HOME and put the image you want inside it with the name "wall.jpeg", "wall.jpg" or "wall.png". -"Hey Leo, but the image I want have neither of those extensions, what do I do? :confused:". No problem, just add your image extension in [this script](https://github.com/fresh-cappuccino/.scripts/blob/master/dwm/setwallpaper.sh), just like below:
+
 `actual line:`
 ```
 aux=`[[ -d "$HOME/wallpaper" ]] && cd "$HOME/wallpaper" && ls "wall."{"jpeg","jpg","png"} 2>/dev/null`
