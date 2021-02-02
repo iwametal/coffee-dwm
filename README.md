@@ -47,23 +47,27 @@ Some of the commands I use in DWM, calls a script in my machine. So, for you to 
 These scripts must be present in you $HOME directory, otherwise, you'll need to change the call for them inside DWM's [config.h](https://github.com/fresh-cappuccino/dwm/blob/master/config.h). Your choice.
 
 ### <sup>layer 4.4</sup> DWM BAR
-Last but not least, my DWM bar is completely made by personal scripts. I used dwmblocks for a while, but, with the desire to put something more simplistic (my likes), I made some simple scripts to launch in it. they are also in the [.scripts](https://github.com/fresh-cappuccino/.scripts) directory I put previously. So, if you clone that, and put in your home directory like mentioned, you should be good. Or you can just adventure yourself in your own scripts or dwmblocks.
+Last but not least, my DWM bar is completely made by personal scripts. I used dwmblocks for a while, but, with the desire to put something more simplistic (my likes), I made some simple scripts to launch in it. They are also in the [.scripts](https://github.com/fresh-cappuccino/.scripts) directory I put previously. So, if you clone that, and put in your home directory like mentioned, you should be good. Or you can just adventure yourself in your own scripts or dwmblocks.
 
 ## <sup>[layer 5]</sup> NOTES
 Well, that is pretty much it. I'd just like to put some important notes here:
 * All my interface initialization is being handle by my [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file, so it is interesting you take a look at it, as the scripts I have for initialization are being called there. For example, my dwm status bar is launch there, so, if you do not have it, your dwm bar will not have the scripts running. Another example is the wallpaper, that is also set there. So, look the end of the file and manage which lines you do or do not want in it.
 
-* Talking about wallpaper... Like said, my wallpaper is set by my [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file, and for that it automatically sets a wallpaper in path ~/wallpaper, looking for a file called wall.png or wall.jpg. So, to set a wallpaper, just create a folder called "wallpaper" in your $HOME directory and put the image you want inside it with the name "wall.png" or "wall.jpg". -"Hey Leo, but the image I want as wallpaper is neither a .png nor a .jpg file :confused:". Ok, just add an `elif` line in [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file, with your image extension, just like below:
+* Talking about wallpaper... Like said, my wallpaper is set by my [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file, and for that it searches for an image called wall.jpeg, wall.jpg or wall.png inside a directory called wallpaper. So, to set your wallpaper, just create a directory with the same name in your $HOME and put the image you want inside it with the name "wall.jpeg", "wall.jpg" or "wall.png". -"Hey Leo, but the image I want is neither of those, what do I do? :confused:". No problem, just add your image extension in [this script](https://github.com/fresh-cappuccino/.scripts/blob/master/dwm/setwallpaper.sh), just like below:
+`actual line:`
 ```
-if [ -f "$HOME/wallpaper/wall.png" ] ; then
-	feh --bg-fill ~/wallpaper/wall.png &
-elif [ -f "$HOME/wallpaper/wall.jpg" ] ; then
-	feh --bg-fill ~/wallpaper/wall.jpg &
-# added extension
-elif [ -f "$HOME/wallpaper/wall.jpeg" ] ; then
-	feh --bg-fill ~/wallpaper/wall.jpeg &
-fi
+aux=`[[ -d "$HOME/wallpaper" ]] && cd "$HOME/wallpaper" && ls "wall."{"jpeg","jpg","png"} 2>/dev/null`
 ```
+
+`modified line, with .tiff extension added:`
+```
+aux=`[[ -d "$HOME/wallpaper" ]] && cd "$HOME/wallpaper" && ls "wall."{"jpeg","jpg","png","tiff"} 2>/dev/null`
+```
+#### IMPORTANT
+This script automatically sets a wallpaper called "wall" with any extension previously set/added. However, you must have only one wallpaper called "wall". If you have 2 files, one called wall.jpg and other called wall.png, the script will not set any wallpaper as a conflict had been detected.
+
+#### IMPORTAT...2
+You may already have noticed, but even my [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file being the one that loads my wallpaper, internally it is just calling a script called `setwallpaper.sh` inside my [.scripts](https://github.com/fresh-cappuccino/.scripts) directory. So, if you're not using my script folder, you need either to paste that script code directly in .xinitrc or implement your own wallpaper setting.
 
 * * If you want the wallpaper of prints above, it's just [here](https://github.com/fresh-cappuccino/linux-config/tree/master/wallpaper).
 
