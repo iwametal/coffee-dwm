@@ -19,13 +19,7 @@ This is my DWM configs, with some resources I value, mostly efficiency and perfo
 Just clone this project in your machine and compile it:
 
 ```
-$ git clone https://github.com/fresh-cappuccino/dwm.git
-```
-```
-$ cd dwm
-```
-```
-$ sudo make clean install
+$ git clone https://github.com/fresh-cappuccino/dwm.git && cd dwm && sudo make clean install
 ```
 
 ## <sup>layer 3</sup> INFO
