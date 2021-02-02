@@ -13,7 +13,7 @@ This is my DWM configs, with some resources I value, mostly efficiency and perfo
 <p align="center">Efficient<p/>
 
 ![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/interface_look_apps.png "Interface Looks")
-<p align="center">last update: Jan 32<sup>nd</sup>, 2021</p>
+<p align="center">last update: Feb 1<sup>st</sup>, 2021</p>
 
 ## <sup>layer 2</sup> INSTALLATION
 Just clone this project in your machine and compile it:
