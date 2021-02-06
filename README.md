@@ -6,13 +6,13 @@ This is my DWM configs, with some resources I value, mostly efficiency and perfo
 `some looks:`
 <p align="center">Clean<p/>
 
-![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/interface_look_clean.png "Interface Looks")
+![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_clean.png "Interface Looks")
 <p align="center">Beautiful<p/>
 
-![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/interface_look_lainfetch.png "Interface Looks")
+![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_lainfetch.png "Interface Looks")
 <p align="center">Efficient<p/>
 
-![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/interface_look_apps.png "Interface Looks")
+![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps.png "Interface Looks")
 <p align="center">last update: Feb 1<sup>st</sup>, 2021</p>
 
 ## <sup>layer 2</sup> INSTALLATION
@@ -71,16 +71,19 @@ You may already have noticed, but even my [~/.xinirc](https://github.com/fresh-c
 #### TAGS
 My tags are all identified by icons, and each one has its purpose. So, for those interested, I'll let my daily workflow below:
 
-| TAG | Symbol                | Title         | Description                                                                                                                                             |
-|-----|-----------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1   | ![tag 1 - terminal](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag1.svg) | Terminal      | General terminal stuffs and applications                                                                                                                |
-| 2   |                      | Web           | Web stuffs, mainly browsers                                                                                                                             |
-| 3   |                      | Games         | Games, game applications and fun time                                                                                                                   |
-| 4   |                      | Communication | Multiple communication channels, for any purpose. Discord, Slack, Telegram, WeeChat and etc.                                                            |
-| 5   |                      | Music         | Music players, music lists, equalizers and any music stuff                                                                                              |
-| 6   |                      | Extras        | Tag to test things, either created by me or a new tool/application. It is also a tag where I put any app that does not fit in any other tag description |
-| 7   |                      | Code          | This is my main code tag, where I put my actual codification.                                                                                           |
-| 8   |                      | Tools         | This is my secondary code code tag, where I put any resource, app or tool related to my code.                                                           |
-| 9   |                      | Server        | Server/Database tag. Here I run my server and database stuffs of any kind                                                                               |
+| TAG | Symbol                                                                                                               | Title         | Description                                                                                                                                             |
+|-----|----------------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | ![tag 1 - terminal](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag1.svg)      | Terminal      | General terminal stuffs and applications                                                                                                                |
+| 2   | ![tag 2 - Web](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag2.svg)           | Web           | Web stuffs, mainly browsers                                                                                                                             |
+| 3   | ![tag 3 - Games](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag3.svg)         | Games         | Games, game applications and fun time                                                                                                                   |
+| 4   | ![tag 4 - Communication](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag4.svg) | Communication | Multiple communication channels, for any purpose. Discord, Slack, Telegram, WeeChat and etc.                                                            |
+| 5   | ![tag 5 - Music](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag5.svg)         | Music         | Music players, music lists, equalizers and any music stuff                                                                                              |
+| 6   | ![tag 6 - Extras](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag6.svg)        | Extras        | Tag to test things, either created by me or a new tool/application. It is also a tag where I put any app that does not fit in any other tag description |
+| 7   | ![tag 7 - Code](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag7.svg)          | Code          | This is my main code tag, where I put my actual codification.                                                                                           |
+| 8   | ![tag 8 - Code Stuffs](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag8.svg)   | Code stuffs   | This is my secondary code code tag, where I put any resource, app or tool related to my code.                                                           |
+| 9   | ![tag 9 - Server/Databases](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag9.svg)                                                                                        | Server        | Server/Database tag. Here I run my server and database stuffs of any kind                                                                               |
+
+#### LICENSE
+© All icons used are free and made available by [Font Awesome](https://fontawesome.com/license).
 
 So, I think it's it. Thank you for the visit and have a good day.
