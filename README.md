@@ -71,16 +71,16 @@ You may already have noticed, but even my [~/.xinirc](https://github.com/fresh-c
 #### TAGS
 My tags are all identified by icons, and each one has its purpose. So, for those interested, I'll let my daily workflow below:
 
-| TAG | Symbol | Title         | Description                                                                                                                                             |
-|-----|--------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1   |       | Terminal      | General terminal stuffs and applications                                                                                                                |
-| 2   |       | Web           | Web stuffs, mainly browsers                                                                                                                             |
-| 3   |       | Games         | Games, game applications and fun time                                                                                                                   |
-| 4   |       | Communication | Multiple communication channels, for any purpose. Discord, Slack, Telegram, WeeChat and etc.                                                            |
-| 5   |       | Music         | Music players, music lists, equalizers and any music stuff                                                                                              |
-| 6   |       | Extras        | Tag to test things, either created by me or a new tool/application. It is also a tag where I put any app that does not fit in any other tag description |
-| 7   |       | Code          | This is my main code tag, where I put my actual codification.                                                                                           |
-| 8   |       | Tools         | This is my secondary code code tag, where I put any resource, app or tool related to my code.                                                           |
-| 9   |       | Server        | Server/Database tag. Here I run my server and database stuffs of any kind                                                                               |
+| TAG | Symbol                | Title         | Description                                                                                                                                             |
+|-----|-----------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | ![tag 1 - terminal](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag1.svg) | Terminal      | General terminal stuffs and applications                                                                                                                |
+| 2   |                      | Web           | Web stuffs, mainly browsers                                                                                                                             |
+| 3   |                      | Games         | Games, game applications and fun time                                                                                                                   |
+| 4   |                      | Communication | Multiple communication channels, for any purpose. Discord, Slack, Telegram, WeeChat and etc.                                                            |
+| 5   |                      | Music         | Music players, music lists, equalizers and any music stuff                                                                                              |
+| 6   |                      | Extras        | Tag to test things, either created by me or a new tool/application. It is also a tag where I put any app that does not fit in any other tag description |
+| 7   |                      | Code          | This is my main code tag, where I put my actual codification.                                                                                           |
+| 8   |                      | Tools         | This is my secondary code code tag, where I put any resource, app or tool related to my code.                                                           |
+| 9   |                      | Server        | Server/Database tag. Here I run my server and database stuffs of any kind                                                                               |
 
 So, I think it's it. Thank you for the visit and have a good day.
