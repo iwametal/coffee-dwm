@@ -61,9 +61,26 @@ aux=`[[ -d "$HOME/wallpaper" ]] && cd "$HOME/wallpaper" && ls "wall."{"jpeg","jp
 #### IMPORTANT
 This script automatically sets a wallpaper called "wall" with any extension previously set/added. However, you must have only one wallpaper called "wall". If you have 2 files, one called wall.jpg and other called wall.png, the script will not set any wallpaper as a conflict had been detected.
 
-#### IMPORTAT...2
+#### IMPORTANT...2
 You may already have noticed, but even my [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file being the one that loads my wallpaper, internally it is just calling a script called `setwallpaper.sh` inside my [.scripts](https://github.com/fresh-cappuccino/.scripts) directory. So, if you're not using my script folder, you need either to paste the script code directly in .xinitrc or implement your own wallpaper setting.
 
 * * If you want the wallpaper of prints above, it's just [here](https://github.com/fresh-cappuccino/linux-config/tree/master/wallpaper).
+
+### EXTRAS/PERSONAL STUFFS
+
+#### TAGS
+My tags are all identified by icons, and each one has its purpose. So, for those interested, I'll let my daily workflow below:
+
+| TAG | Symbol | Title         | Description                                                                                                                                             |
+|-----|--------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   |       | Terminal      | General terminal stuffs and applications                                                                                                                |
+| 2   |       | Web           | Web stuffs, mainly browsers                                                                                                                             |
+| 3   |       | Games         | Games, game applications and fun time                                                                                                                   |
+| 4   |       | Communication | Multiple communication channels, for any purpose. Discord, Slack, Telegram, WeeChat and etc.                                                            |
+| 5   |       | Music         | Music players, music lists, equalizers and any music stuff                                                                                              |
+| 6   |       | Extras        | Tag to test things, either created by me or a new tool/application. It is also a tag where I put any app that does not fit in any other tag description |
+| 7   |       | Code          | This is my main code tag, where I put my actual codification.                                                                                           |
+| 8   |       | Tools         | This is my secondary code code tag, where I put any resource, app or tool related to my code.                                                           |
+| 9   |       | Server        | Server/Database tag. Here I run my server and database stuffs of any kind                                                                               |
 
 So, I think it's it. Thank you for the visit and have a good day.
