@@ -58,17 +58,17 @@ aux=`[[ -d "$HOME/wallpaper" ]] && cd "$HOME/wallpaper" && ls "wall."{"jpeg","jp
 ```
 aux=`[[ -d "$HOME/wallpaper" ]] && cd "$HOME/wallpaper" && ls "wall."{"jpeg","jpg","png","tiff"} 2>/dev/null`
 ```
-#### IMPORTANT
+#### <sup>[layer 5.1]</sup>IMPORTANT
 This script automatically sets a wallpaper called "wall" with any extension previously set/added. However, you must have only one wallpaper called "wall". If you have 2 files, one called wall.jpg and other called wall.png, the script will not set any wallpaper as a conflict had been detected.
 
-#### IMPORTANT...2
+#### <sup>[layer 5.2]</sup>IMPORTANT...2
 You may already have noticed, but even my [~/.xinirc](https://github.com/fresh-cappuccino/linux-config/blob/master/.xinitrc) file being the one that loads my wallpaper, internally it is just calling a script called `setwallpaper.sh` inside my [.scripts](https://github.com/fresh-cappuccino/.scripts) directory. So, if you're not using my script folder, you need either to paste the script code directly in .xinitrc or implement your own wallpaper setting.
 
 * * If you want the wallpaper of prints above, it's just [here](https://github.com/fresh-cappuccino/linux-config/tree/master/wallpaper).
 
-### EXTRAS/PERSONAL STUFFS
+### <sup>[layer 6]</sup>EXTRAS/PERSONAL STUFFS
 
-#### TAGS
+#### <sup>[layer 6.1]</sup>TAGS
 My tags are all identified by icons, and each one has its purpose. So, for those interested, I'll let my daily workflow below:
 
 | Tag | Icon                                                                                                                    | Title         | Description                                                                                                                                             |
@@ -83,7 +83,7 @@ My tags are all identified by icons, and each one has its purpose. So, for those
 | 8   | ![tag 8 - Code Stuffs](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag8.svg)      | Code stuffs   | This is my secondary code tag, where I put any resource, app or tool related to my code.                                                                |
 | 9   | ![tag 9 - Server/Databases](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/icons/tag9.svg) | Server        | Server/Database tag. Here I run my server and database stuffs of any kind                                                                               |
 
-#### LICENSE
+#### <sup>[layer 6.1.2]</sup>LICENSE
 © All icons used are free and made available by [Font Awesome](https://fontawesome.com/license).
 
 So, I think it's it. Thank you for the visit and have a good day.
