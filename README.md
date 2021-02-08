@@ -14,7 +14,7 @@ This is my DWM configs, with some resources I value, mostly efficiency and perfo
 
 <figure class="video_container">
   <video controls="true" allowfullscreen="true" poster="https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps.png">
-    <source src="raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/video/workflow.mp4" type="video/mp4">
+    <source src="resources/video/workflow.mp4" type="video/mp4">
   </video>
 </figure>
 <!-- (![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps.png "Interface Looks")) -->
