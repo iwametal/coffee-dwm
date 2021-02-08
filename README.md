@@ -17,7 +17,7 @@ This is my DWM configs, with some resources I value, mostly efficiency and perfo
     <source src="raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/video/workflow.mp4" type="video/mp4">
   </video>
 </figure>
-comment]: <> (![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps.png "Interface Looks"))
+[comment]: <> (![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps.png "Interface Looks"))
 <p align="center">last update: Feb 1<sup>st</sup>, 2021</p>
 
 ## <sup>layer 2</sup> INSTALLATION
