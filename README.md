@@ -12,12 +12,11 @@ This is my DWM configs, with some resources I value, mostly efficiency and perfo
 ![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_lainfetch.png "Interface Looks")
 <p align="center">Efficient<p/>
 
-<figure class="video_container">
-  <video controls="true" allowfullscreen="true" poster="https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps.png">
-    <source src="resources/video/workflow.mp4" type="video/mp4">
-  </video>
-</figure>
-<!-- (![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps.png "Interface Looks")) -->
+![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps.png "Interface Looks")
+
+<p align="center">Flexible<p/>
+
+![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps0.png "Interface Looks")
 <p align="center">last update: Feb 1<sup>st</sup>, 2021</p>
 
 ## <sup>layer 2</sup> INSTALLATION
