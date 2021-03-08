@@ -13,7 +13,7 @@ static unsigned int gappov    = 30;       /* vert outer gap between windows and 
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "monospace:size=12", "JoyPixels:pixelsize=12:antialias=true:autohint=true"  };
+static char *fonts[]          = { "monospace:size=13", "JoyPixels:pixelsize=13:antialias=true:autohint=true"  };
 static char normbgcolor[]     = "#0d0c11";
 static char normbordercolor[] = "#4B4665";
 static char normfgcolor[]     = "#84598D"; // AD69AF
@@ -58,9 +58,10 @@ static const Rule rules[] = {
 	{ "krita",       NULL,       NULL,       	    1 << 5,       0,           0,         0,        -1 },
 	{ "obs",         NULL,       NULL,       	    1 << 5,       0,           0,         0,        -1 },
 	{ "soapui",      NULL,       NULL,       	    1 << 7,       0,           0,         0,        -1 },
+	{ "android-studio", NULL,    NULL,       	    1 << 6,       0,           0,         0,        -1 },
 	{ "idea",        NULL,       NULL,       	    1 << 6,       0,           0,         0,        -1 },
 	{ "ncmpcpp",     NULL,       "ncmpcpp",  	    1 << 4,       0,           0,         0,        -1 },
-	{ "Discord",     NULL,       "Discord",  	    1 << 3,       0,           0,         0,        -1 },
+	{ "discord",     NULL,       NULL,  	    1 << 3,       0,           0,         0,        -1 },
 	{ "slack",       NULL,       "Slack",    	    1 << 3,       0,           0,         0,        -1 },
 	{ "lutris",      NULL,       "Lutris",   	    1 << 2,       0,           0,         0,        -1 },
 	{ "steam",       NULL,       "Steam",    	    1 << 2,       0,           0,         0,        -1 },
