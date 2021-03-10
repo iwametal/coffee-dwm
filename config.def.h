@@ -16,10 +16,10 @@ static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = { "monospace:size=13", "JoyPixels:pixelsize=13:antialias=true:autohint=true"  };
 static char normbgcolor[]     = "#0d0c11";
 static char normbordercolor[] = "#4B4665";
-static char normfgcolor[]     = "#84598D"; // AD69AF
-static char selfgcolor[]      = "#d1d7e1";
-static char selbordercolor[]  = "#84598D";
-static char selbgcolor[]      = "#593b5e"; // 4b304f
+static char normfgcolor[]     = "#AD69AF"; // AD69AF // 84598D // 6e4c83
+static char selfgcolor[]      = "#FDF8FF"; // #d1d7e1
+static char selbordercolor[]  = "#472d5f"; // 84598D
+static char selbgcolor[]      = "#472d5f"; // 4b304f // 593b5e
 static const unsigned int baralpha    = 0xcd;
 static const unsigned int borderalpha = OPAQUE;
 static char *colors[][3] = {
@@ -61,7 +61,7 @@ static const Rule rules[] = {
 	{ "android-studio", NULL,    NULL,       	    1 << 6,       0,           0,         0,        -1 },
 	{ "idea",        NULL,       NULL,       	    1 << 6,       0,           0,         0,        -1 },
 	{ "ncmpcpp",     NULL,       "ncmpcpp",  	    1 << 4,       0,           0,         0,        -1 },
-	{ "discord",     NULL,       NULL,  	    1 << 3,       0,           0,         0,        -1 },
+	{ "discord",     NULL,       NULL,      	    1 << 3,       0,           0,         0,        -1 },
 	{ "slack",       NULL,       "Slack",    	    1 << 3,       0,           0,         0,        -1 },
 	{ "lutris",      NULL,       "Lutris",   	    1 << 2,       0,           0,         0,        -1 },
 	{ "steam",       NULL,       "Steam",    	    1 << 2,       0,           0,         0,        -1 },
