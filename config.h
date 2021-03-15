@@ -181,6 +181,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_q,		          spawn,  	   SHCMD("$HOME/.scripts/dwm/halt/opt_halt") },
 	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_r,		          spawn,  	   SHCMD("$HOME/.scripts/dwm/halt/opt_reboot") },
 	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_h,		          spawn,  	   SHCMD("$HOME/.scripts/dwm/halt/halt.sh") },
+	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_k,		          spawn,  	   SHCMD("$HOME/.scripts/dwm/process/kill_process.sh") },
 	{ MODKEY,			        XK_w,		          spawn,		   SHCMD("$BROWSER") },
 	{ MODKEY|ControlMask, XK_w,		          spawn,		   SHCMD("chromium") },
 	{ MODKEY|ShiftMask,		XK_w,		          spawn,		   SHCMD(TERMINAL " -e sudo nmtui") },
