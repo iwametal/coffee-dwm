@@ -177,9 +177,9 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_Tab,		  spawn,		SHCMD("") }, */
 	{ MODKEY,			        XK_q,		          killclient,	 {0} },
 	{ MODKEY|Mod1Mask,		XK_q,		          quit,        {0} },
-	{ MODKEY|ShiftMask,		XK_q,		          spawn,  	   SHCMD(TERMINAL " $HOME/.scripts/dwm/halt/opt_slock") },
-	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_q,		          spawn,  	   SHCMD(TERMINAL " $HOME/.scripts/dwm/halt/opt_halt") },
-	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_r,		          spawn,  	   SHCMD(TERMINAL " $HOME/.scripts/dwm/halt/opt_reboot") },
+	{ MODKEY|ShiftMask,		XK_q,		          spawn,  	   SHCMD("$HOME/.scripts/dwm/halt/opt_slock") },
+	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_q,		          spawn,  	   SHCMD("$HOME/.scripts/dwm/halt/opt_halt") },
+	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_r,		          spawn,  	   SHCMD("$HOME/.scripts/dwm/halt/opt_reboot") },
 	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_h,		          spawn,  	   SHCMD("$HOME/.scripts/dwm/halt/halt.sh") },
 	{ MODKEY,			        XK_w,		          spawn,		   SHCMD("$BROWSER") },
 	{ MODKEY|ControlMask, XK_w,		          spawn,		   SHCMD("chromium") },
