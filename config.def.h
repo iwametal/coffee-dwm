@@ -241,8 +241,8 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_b,		spawn,		SHCMD("") }, */
 	{ MODKEY|Mod1Mask|ControlMask, XK_c,   spawn,		      SHCMD(TERMINAL " sudo $HOME/.scripts/cache/drop_cache_full") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_s,   spawn,		      SHCMD(TERMINAL " sudo $HOME/.scripts/swap/drop_swap.sh") },
-	{ MODKEY|Mod1Mask|ControlMask, XK_m,   spawn,		      SHCMD(TERMINAL " sudo $HOME/.scripts/mount/external-devices/mount-ed.sh") },
-	{ MODKEY|Mod1Mask|ControlMask, XK_u,   spawn,		      SHCMD(TERMINAL " sudo $HOME/.scripts/umount/external-devices/umount-ed.sh") },
+	{ MODKEY|Mod1Mask|ControlMask, XK_m,   spawn,		      SHCMD(TERMINAL " $HOME/.scripts/mount/external-devices/mount-ed.sh") },
+	{ MODKEY|Mod1Mask|ControlMask, XK_u,   spawn,		      SHCMD(TERMINAL " $HOME/.scripts/umount/external-devices/umount-ed.sh") },
 	{ MODKEY,			        XK_n,		         spawn,		      SHCMD(TERMINAL " -e nvim $HOME/vim_prog/main.c") },
 	{ MODKEY|ShiftMask,		XK_n,		         spawn,		      SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
 	{ MODKEY,			        XK_m,		         spawn,		      SHCMD(TERMINAL " $HOME/.scripts/dwm/music/launch_ncmpcpp.sh") },
