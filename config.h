@@ -16,10 +16,10 @@ static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = { "monospace:size=13", "JoyPixels:pixelsize=13:antialias=true:autohint=true"  };
 static char normbgcolor[]     = "#0d0c11";
 static char normbordercolor[] = "#4B4665";
-static char normfgcolor[]     = "#966bd9"; // AD69AF // 84598D // 6e4c83 // AD69AF // 623288
+static char normfgcolor[]     = "#8758a9"; // AD69AF // 84598D // 6e4c83 // AD69AF // 623288 ---- 966bd9 - 8366b3
 static char selfgcolor[]      = "#FDF8FF"; // #d1d7e1
 static char selbordercolor[]  = "#472d5f"; // 84598D
-static char selbgcolor[]      = "#623f88"; // 4b304f // 593b5e // 301b32 --------- 361742 - 623288
+static char selbgcolor[]      = "#624480"; // 4b304f // 593b5e // 301b32 --------- 361742 - 623f88
 static const unsigned int baralpha    = 0xcd;
 static const unsigned int borderalpha = OPAQUE;
 static char *colors[][3] = {
