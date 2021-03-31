@@ -7,9 +7,11 @@ This is my DWM configs, with some resources I value, mostly efficiency and perfo
 <p align="center">Clean<p/>
 
 ![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_clean.png "Interface Looks")
+
 <p align="center">Beautiful<p/>
 
 ![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_lainfetch.png "Interface Looks")
+
 <p align="center">Efficient<p/>
 
 ![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps.png "Interface Looks")
@@ -17,6 +19,11 @@ This is my DWM configs, with some resources I value, mostly efficiency and perfo
 <p align="center">Flexible<p/>
 
 ![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps0.png "Interface Looks")
+
+<p align="center">Extensible<p/>
+
+![Interface Looks](https://raw.githubusercontent.com/fresh-cappuccino/dwm/master/resources/img/looks/interface_look_apps1.png "Interface Looks")
+
 <p align="center">last update: Feb 1<sup>st</sup>, 2021</p>
 
 ## <sup>layer 2</sup> INSTALLATION
