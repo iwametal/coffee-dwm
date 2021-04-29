@@ -1,7 +1,7 @@
 # COFFEE's DWM
 
 ## <sup>layer 1</sup> ABOUT
-This is my DWM configs, with some resources I value, mostly efficiency and performance, but also with a simplistic beauty look. I made these configs thinking in optimize both my work and daily usage the maximum as possible, with rules and shortcuts for all considerable and frequently used programs, applications, tools and even personal scripts. It took a while, but I'm really happy with the result and probably will never get used to another interface again.
+This is my DWM config, with some resources I value, mostly efficiency and performance, but also with a simplistic beauty look. I made these configs thinking in optimize both my work and daily usage the maximum as possible, with rules and shortcuts for all considerable and frequently used programs, applications, tools and even personal scripts. It took a while, but I'm really happy with the result and probably will never get used to another interface again.
 
 `some looks:`
 <p align="center">Clean<p/>
@@ -30,7 +30,9 @@ This is my DWM configs, with some resources I value, mostly efficiency and perfo
 Just clone this project in your machine and compile it:
 
 ```
-$ git clone https://github.com/fresh-cappuccino/dwm.git && cd dwm && sudo make clean install
+$ git clone https://github.com/chown-coffee/dwm.git
+cd dwm
+make clean install # might need sudo
 ```
 
 ## <sup>layer 3</sup> INFO
