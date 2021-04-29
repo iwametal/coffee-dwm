@@ -31,8 +31,8 @@ Just clone this project in your machine and compile it:
 
 ```
 $ git clone https://github.com/chown-coffee/dwm.git
-cd dwm
-make clean install # might need sudo
+$ cd dwm
+$ make clean install # might need sudo
 ```
 
 ## <sup>layer 3</sup> INFO
