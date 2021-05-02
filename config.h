@@ -46,7 +46,9 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+/* 🐈   */
+static const char *tags[] = { "", "🐱", "", "", "", "", "", "⏳", "" };
+static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -244,8 +246,8 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask|ControlMask, XK_s,   spawn,		      SHCMD(TERMINAL " sudo $HOME/.scripts/swap/drop_swap.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_m,   spawn,		      SHCMD(TERMINAL " $HOME/.scripts/mount/external-devices/mount-ed.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_u,   spawn,		      SHCMD(TERMINAL " $HOME/.scripts/umount/external-devices/umount-ed.sh") },
-	{ MODKEY,			        XK_n,		         spawn,		      SHCMD(TERMINAL " -e nvim $HOME/vim_prog/main.c") },
-	{ MODKEY|ShiftMask,		XK_n,		         spawn,		      SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
+	{ MODKEY,             XK_n,            togglealttag,  {0} },
+	// { MODKEY|ShiftMask,		XK_n,		         spawn,		      SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
 	{ MODKEY,			        XK_m,		         spawn,		      SHCMD(TERMINAL " $HOME/.scripts/dwm/music/launch_ncmpcpp.sh") },
 	{ MODKEY|ShiftMask,		XK_m,		         spawn,		      SHCMD("pamixer -t") },
 	{ MODKEY,			        XK_comma,	       spawn,		      SHCMD("mpc prev") },
