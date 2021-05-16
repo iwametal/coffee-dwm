@@ -48,7 +48,7 @@ static Sp scratchpads[] = {
 /* tagging */
 /* 🐈   */
 static const char *tags[] = { "", "🐱", "", "", "", "", "", "⏳", "" };
-static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tagsalt[] = { "Ⅰ", "Ⅱ", "Ⅲ", "ⅠⅤ", "Ⅴ", "ⅤⅠ", "ⅤⅡ", "ⅤⅢ", "ⅠⅩ" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -185,7 +185,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_h,		          spawn,  	   SHCMD("$HOME/.scripts/dwm/halt/halt.sh") },
 	{ MODKEY|Mod1Mask|ControlMask|ShiftMask,		XK_k,		          spawn,  	   SHCMD("$HOME/.scripts/dwm/process/kill_process.sh") },
 	{ MODKEY,			        XK_w,		          spawn,		   SHCMD("$BROWSER") },
-	{ MODKEY|ControlMask, XK_w,		          spawn,		   SHCMD("chromium") },
+	{ MODKEY|ControlMask, XK_w,		          spawn,		   SHCMD("brave") },
 	{ MODKEY|ShiftMask,		XK_w,		          spawn,		   SHCMD(TERMINAL " -e sudo nmtui") },
 	/* { MODKEY,			        XK_e,		          spawn,		   SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") }, */
 	/* { MODKEY|ShiftMask,		XK_e,		          spawn,		   SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") }, */
