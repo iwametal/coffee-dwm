@@ -85,19 +85,19 @@ static int resizehints = 1;    /* 1 means respect size hints in tiled resizals *
 #include "vanitygaps.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
- 	{ "[]=",	tile },			/* Default: Master on left, slaves on right */
-	{ "TTT",	bstack },		/* Master on top, slaves on bottom */
+	{ "┤⊓├",	centeredmaster },		/* Master in middle, slaves on sides */
+	{ "├Ω┤",	centeredfloatingmaster },	/* Same but master floats */
 
-	{ "[@]",	spiral },		/* Fibonacci spiral */
-	{ "[\\]",	dwindle },		/* Decreasing in size right and leftward */
+ 	{ "│╞═",	tile },			/* Default: Master on left, slaves on right */
+	{ "├╥┤",	bstack },		/* Master on top, slaves on bottom */
 
-	{ "H[]",	deck },			/* Master on left, slaves in monocle-like mode on right */
- 	{ "[M]",	monocle },		/* All windows on top of eachother */
+	{ "⟦⟧↻",	spiral },		/* Fibonacci spiral */
+	{ "⟧⟦↺",	dwindle },		/* Decreasing in size right and leftward */
 
-	{ "|M|",	centeredmaster },		/* Master in middle, slaves on sides */
-	{ ">M>",	centeredfloatingmaster },	/* Same but master floats */
+	{ "۝❏",	deck },			/* Master on left, slaves in monocle-like mode on right */
+ 	{ "۝⇧",	monocle },		/* All windows on top of eachother */
 
-	{ "><>",	NULL },			/* no layout function means floating behavior */
+	{ "⋗Φ⋖",	NULL },			/* no layout function means floating behavior */
 	{ NULL,		NULL },
 };
 
@@ -192,14 +192,14 @@ static Key keys[] = {
 	{ MODKEY,			        XK_r,		          spawn,		   SHCMD(TERMINAL " -e ranger") },
 	{ MODKEY|ControlMask, XK_r,		          spawn,		   SHCMD(TERMINAL " -e vifm") },
 	{ MODKEY|ShiftMask,		XK_r,		          spawn,		   SHCMD(TERMINAL " -e bashtop") },
-	{ MODKEY,			        XK_t,		          setlayout,	 {.v = &layouts[0]} }, /* tile */
-	{ MODKEY|ShiftMask,		XK_t,		          setlayout,	 {.v = &layouts[1]} }, /* bstack */
-	{ MODKEY,			        XK_y,		          setlayout,	 {.v = &layouts[2]} }, /* spiral */
-	{ MODKEY|ShiftMask,		XK_y,		          setlayout,	 {.v = &layouts[3]} }, /* dwindle */
-	{ MODKEY,			        XK_u,		          setlayout,	 {.v = &layouts[4]} }, /* deck */
-	{ MODKEY|ShiftMask,		XK_u,		          setlayout,	 {.v = &layouts[5]} }, /* monocle */
-	{ MODKEY,			        XK_i,		          setlayout,	 {.v = &layouts[6]} }, /* centeredmaster */
-	{ MODKEY|ShiftMask,		XK_i,		          setlayout,	 {.v = &layouts[7]} }, /* centeredfloatingmaster */
+	{ MODKEY,			        XK_i,		          setlayout,	 {.v = &layouts[0]} }, /* centeredmaster */
+	{ MODKEY|ShiftMask,		XK_i,		          setlayout,	 {.v = &layouts[1]} }, /* centeredfloatingmaster */
+	{ MODKEY,			        XK_t,		          setlayout,	 {.v = &layouts[2]} }, /* tile */
+	{ MODKEY|ShiftMask,		XK_t,		          setlayout,	 {.v = &layouts[3]} }, /* bstack */
+	{ MODKEY,			        XK_y,		          setlayout,	 {.v = &layouts[4]} }, /* spiral */
+	{ MODKEY|ShiftMask,		XK_y,		          setlayout,	 {.v = &layouts[5]} }, /* dwindle */
+	{ MODKEY,			        XK_u,		          setlayout,	 {.v = &layouts[6]} }, /* deck */
+	{ MODKEY|ShiftMask,		XK_u,		          setlayout,	 {.v = &layouts[7]} }, /* monocle */
 	{ MODKEY,			        XK_o,		          incnmaster,  {.i = +1 } },
 	{ MODKEY|ShiftMask,		XK_o,		          incnmaster,  {.i = -1 } },
 	{ MODKEY,			        XK_p,			        spawn,		   SHCMD("mpc toggle") },
