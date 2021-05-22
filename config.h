@@ -20,7 +20,7 @@ static char normfgcolor[]     = "#8758a9"; // AD69AF // 84598D // 6e4c83 // AD69
 static char selfgcolor[]      = "#FDF8FF"; // #d1d7e1
 static char selbordercolor[]  = "#472d5f"; // 84598D
 static char selbgcolor[]      = "#624480"; // 4b304f // 593b5e // 301b32 --------- 361742 - 623f88
-static const unsigned int baralpha    = 0xFF;
+static const unsigned int baralpha    = 0xCC;
 static const unsigned int borderalpha = OPAQUE;
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -337,7 +337,7 @@ static Key keys[] = {
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 #ifndef __OpenBSD__
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+	// { ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
 	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },

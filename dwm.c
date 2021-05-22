@@ -77,8 +77,10 @@ enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
        NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
 enum { WMProtocols, WMDelete, WMState, WMTakeFocus, WMLast }; /* default atoms */
-enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
-       ClkClientWin, ClkRootWin, ClkLast }; /* clicks */
+// enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
+//        ClkClientWin, ClkRootWin, ClkLast }; /* clicks */
+enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkClientWin,
+       ClkRootWin, ClkLast }; /* clicks */
 
 typedef union {
 	int i;
@@ -567,27 +569,29 @@ buttonpress(XEvent *e)
 			arg.ui = 1 << i;
 		} else if (ev->x < x + blw)
 			click = ClkLtSymbol;
-		else if (ev->x > (x = selmon->ww - TEXTW(stext) + lrpad)) {
-			click = ClkStatusText;
+		// else if (ev->x > (x = selmon->ww - TEXTW(stext) + lrpad)) {
+		// 	click = ClkStatusText;
 
-			char *text = rawstext;
-			int i = -1;
-			char ch;
-			dwmblockssig = 0;
-			while (text[++i]) {
-				if ((unsigned char)text[i] < ' ') {
-					ch = text[i];
-					text[i] = '\0';
-					x += TEXTW(text) - lrpad;
-					text[i] = ch;
-					text += i+1;
-					i = -1;
-					if (x >= ev->x) break;
-					dwmblockssig = ch;
-				}
-			}
-		} else
-			click = ClkWinTitle;
+		// 	char *text = rawstext;
+		// 	int i = -1;
+		// 	char ch;
+		// 	dwmblockssig = 0;
+		// 	while (text[++i]) {
+		// 		if ((unsigned char)text[i] < ' ') {
+		// 			ch = text[i];
+		// 			text[i] = '\0';
+		// 			x += TEXTW(text) - lrpad;
+		// 			text[i] = ch;
+		// 			text += i+1;
+		// 			i = -1;
+		// 			if (x >= ev->x) break;
+		// 			dwmblockssig = ch;
+		// 		}
+		// 	}
+		// } else
+		// 	click = ClkWinTitle;
+			else
+				click = ClkStatusText;
 	} else if ((c = wintoclient(ev->window))) {
 		focus(c);
 		restack(selmon);
@@ -895,15 +899,15 @@ drawbar(Monitor *m)
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
 
 	if ((w = m->ww - tw - x) > bh) {
-		if (m->sel) {
-			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
-			drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0);
-			if (m->sel->isfloating)
-				drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
-		} else {
+		// if (m->sel) {
+		// 	drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
+		// 	drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0);
+		// 	if (m->sel->isfloating)
+		// 		drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
+		// } else {
 			drw_setscheme(drw, scheme[SchemeNorm]);
 			drw_rect(drw, x, 0, w, bh, 1, 1);
-		}
+		// }
 	}
 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
 }
@@ -1431,11 +1435,12 @@ propertynotify(XEvent *e)
 			drawbars();
 			break;
 		}
-		if (ev->atom == XA_WM_NAME || ev->atom == netatom[NetWMName]) {
+		// if (ev->atom == XA_WM_NAME || ev->atom == netatom[NetWMName]) {
+		if (ev->atom == XA_WM_NAME || ev->atom == netatom[NetWMName])
 			updatetitle(c);
-			if (c == c->mon->sel)
-				drawbar(c->mon);
-		}
+			// if (c == c->mon->sel)
+			// 	drawbar(c->mon);
+		// }
 		if (ev->atom == netatom[NetWMWindowType])
 			updatewindowtype(c);
 	}
