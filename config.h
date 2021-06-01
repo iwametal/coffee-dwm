@@ -14,13 +14,13 @@ static int smartgaps          = 0;        /* 1 means no outer gap when there is 
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = { "monospace:size=13", "JoyPixels:pixelsize=13:antialias=true:autohint=true"  };
-static char normbgcolor[]     = "#0d0c11";
+static char normbgcolor[]     = "#000000"; // 0d0c11
 static char normbordercolor[] = "#4B4665";
 static char normfgcolor[]     = "#8758a9"; // AD69AF // 84598D // 6e4c83 // AD69AF // 623288 ---- 966bd9 - 8366b3
-static char selfgcolor[]      = "#FDF8FF"; // #d1d7e1
+static char selfgcolor[]      = "#FDF8FF"; // d1d7e1
 static char selbordercolor[]  = "#472d5f"; // 84598D
 static char selbgcolor[]      = "#624480"; // 4b304f // 593b5e // 301b32 --------- 361742 - 623f88
-static const unsigned int baralpha    = 0xCC;
+static const unsigned int baralpha    = 0xC7;
 static const unsigned int borderalpha = OPAQUE;
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -247,6 +247,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask|ControlMask, XK_m,   spawn,		      SHCMD(TERMINAL " $HOME/.scripts/mount/external-devices/mount-ed.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_u,   spawn,		      SHCMD(TERMINAL " $HOME/.scripts/umount/external-devices/umount-ed.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_j,   spawn,		      SHCMD("$HOME/.scripts/dwm/java/change_java_version.sh") },
+	{ MODKEY|Mod1Mask|ControlMask, XK_p,   spawn,		      SHCMD("$HOME/.scripts/dwm/pacman/pacmenu.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_b,   spawn,		      SHCMD("$HOME/.scripts/dwmstatusbar/toggle_dwm_status_bar.sh") },
 	{ MODKEY,             XK_n,            togglealttag,  {0} },
 	// { MODKEY|ShiftMask,		XK_n,		         spawn,		      SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
