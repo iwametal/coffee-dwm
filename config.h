@@ -247,6 +247,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask|ControlMask, XK_m,   spawn,		      SHCMD(TERMINAL " -ig 120x35+640+200 $HOME/.scripts/mount/external-devices/mount-ed.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_u,   spawn,		      SHCMD(TERMINAL " -ig 120x35+640+200 $HOME/.scripts/umount/external-devices/umount-ed.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_j,   spawn,		      SHCMD("$HOME/.scripts/dwm/java/change_java_version.sh") },
+	{ MODKEY|Mod1Mask|ControlMask, XK_v,   spawn,		      SHCMD("$HOME/.scripts/vpn/cisco/vpnmenu.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_p,   spawn,		      SHCMD("$HOME/.scripts/dwm/pacman/pacmenu.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_b,   spawn,		      SHCMD("$HOME/.scripts/dwmstatusbar/toggle_dwm_status_bar.sh") },
 	{ MODKEY,             XK_n,            togglealttag,  {0} },
