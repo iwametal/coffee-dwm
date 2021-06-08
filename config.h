@@ -281,7 +281,7 @@ static Key keys[] = {
 	{ MODKEY,			        XK_space,	       zoom,		      {0} },
 	{ MODKEY|ShiftMask,		XK_space,	       togglefloating,{0} },
 	{ ControlMask|ShiftMask, XK_space,	   spawn,		      SHCMD("dunstctl close-all") },
-	{ ControlMask|ShiftMask|Mod1Mask, XK_space,	   spawn,		      SHCMD("[ `dunstctl is-paused` = \"true\" ] && dunstctl set-paused false || dunstctl set-paused true") },
+	{ ControlMask|ShiftMask|Mod1Mask, XK_space,	   spawn,		      SHCMD("dunstctl set-paused toggle") },
 	{ 0,				          XK_Print,	       spawn,		      SHCMD("[[ ! -d \"$HOME/Pictures/screenshot\" ]] && mkdir -p \"$HOME/Pictures/screenshot\" && flameshot full -p $HOME/Pictures/screenshot || flameshot full -p $HOME/Pictures/screenshot") },
 	{ ControlMask,	      XK_Print,	       spawn,		      SHCMD("flameshot full -c") },
 	{ ShiftMask,			    XK_Print,	       spawn,		      SHCMD("flameshot gui") },
