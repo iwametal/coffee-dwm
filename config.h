@@ -251,6 +251,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask|ControlMask, XK_p,   spawn,		      SHCMD("$HOME/.scripts/dwm/pacman/pacmenu.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_b,   spawn,		      SHCMD("$HOME/.scripts/dwmstatusbar/toggle_dwm_status_bar.sh") },
 	{ MODKEY|Mod1Mask|ControlMask, XK_n,   spawn,		      SHCMD("$HOME/.scripts/notification/send/run_notify_send_test.sh") },
+	{ MODKEY|Mod1Mask|ShiftMask|ControlMask, XK_n,   spawn,		      SHCMD("$HOME/.scripts/notification/send/run_notify_send_test.sh --dynamic") },
 	{ MODKEY,             XK_n,            togglealttag,  {0} },
 	// { MODKEY|ShiftMask,		XK_n,		         spawn,		      SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
 	{ MODKEY,			        XK_m,		         spawn,		      SHCMD(TERMINAL " $HOME/.scripts/dwm/music/launch_ncmpcpp.sh") },
