@@ -176,6 +176,7 @@ static Key keys[] = {
 	{ MODKEY,			        XK_BackSpace,	    spawn,		   SHCMD("sysact") },
 	{ MODKEY|ShiftMask,		XK_BackSpace,	    spawn,		   SHCMD("sysact") },
 	{ MODKEY,			        XK_Tab,		        view,		     {0} },
+	{ Mod1Mask,		        XK_Tab,	 	        shiftview,   { .i = 1 } },
 	/* { MODKEY|ShiftMask,		XK_Tab,		  spawn,		SHCMD("") }, */
 	{ MODKEY,			        XK_q,		          killclient,	 {0} },
 	{ MODKEY|Mod1Mask,		XK_q,		          quit,        {0} },
