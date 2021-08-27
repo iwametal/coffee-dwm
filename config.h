@@ -13,7 +13,7 @@ static unsigned int gappov    = 30;       /* vert outer gap between windows and 
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "monospace:size=13", "JoyPixels:pixelsize=13:antialias=true:autohint=true"  };
+static char *fonts[]          = { "Hack Nerd Font:size=13", "JoyPixels:pixelsize=13:antialias=true:autohint=true"  };
 static char normbgcolor[]     = "#000000"; // 0d0c11
 static char normbordercolor[] = "#4B4665";
 static char normfgcolor[]     = "#8758a9"; // AD69AF // 84598D // 6e4c83 // AD69AF // 623288 ---- 966bd9 - 8366b3
@@ -46,9 +46,11 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-/* 🐈  */
-static const char *tags[] = { "", "🐱", "", "", "", "", "", "⏳", "" };
-static const char *tagsalt[] = { "Ⅰ", "Ⅱ", "Ⅲ", "ⅠⅤ", "Ⅴ", "ⅤⅠ", "ⅤⅡ", "ⅤⅢ", "ⅠⅩ" };
+/* 🐈   */
+/* static const char *tags[] = { "", "🐱", "", "", "", "", "", "⏳", "" }; */
+/* static const char *tags[] = {" ", " ", " ", " ", " "}; */
+static const char *tags[] = { " ", " ", " ", " ", " ", " ", " ", " ", " " };
+static const char *tagsalt[] = { "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ" };
 
 static const Rule rules[] = {
 	/* xprop(1):
