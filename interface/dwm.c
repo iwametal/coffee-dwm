@@ -3198,21 +3198,21 @@ spawn(const Arg *arg)
 void
 switchtag(void)
 {
-  	int i;
+  int i;
 	unsigned int occ = 0;
 	Client *c;
-        Imlib_Image image;
+  Imlib_Image image;
 
 	for (c = selmon->clients; c; c = c->next)
 		occ |= c->tags;
 	for (i = 0; i < LENGTH(tags); i++) {
 		if (selmon->tagset[selmon->seltags] & 1 << i) {
-                  	if (selmon->tagmap[i] != 0) {
+      if (selmon->tagmap[i] != 0) {
  				XFreePixmap(dpy, selmon->tagmap[i]);
  				selmon->tagmap[i] = 0;
  			}
 			if (occ & 1 << i) {
-                          	image = imlib_create_image(sw, sh);
+        image = imlib_create_image(sw, sh);
 				imlib_context_set_image(image);
 				imlib_context_set_display(dpy);
 				imlib_context_set_visual(DefaultVisual(dpy, screen));
@@ -3918,56 +3918,57 @@ updatewmhints(Client *c)
 }
 
 
-void
-view(const Arg *arg) {
-  if((arg->ui & TAGMASK) == selmon->tagset[selmon->seltags])
-    return;
-  selmon->seltags ^= 1; /* toggle sel tagset */
-  if(arg->ui & TAGMASK)
-    selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
-  focus(NULL);
-  arrange(selmon);
-}
-
-
 /* void */
-/* view(const Arg *arg) */
-/* { */
-/*   int i; */
-/*   unsigned int tmptag; */
-
-/*   if ((arg->ui & TAGMASK) == selmon->tagset[selmon->seltags]) */
+/* view(const Arg *arg) { */
+/*   if((arg->ui & TAGMASK) == selmon->tagset[selmon->seltags]) */
 /*     return; */
-/*   switchtag(); */
 /*   selmon->seltags ^= 1; /1* toggle sel tagset *1/ */
-/*   if (arg->ui & TAGMASK) { */
-/*     selmon->pertag->prevtag = selmon->pertag->curtag; */
-
-/* 		if (arg->ui == ~0) */
-/* 			selmon->pertag->curtag = 0; */
-/* 		else { */
-/* 			for (i = 0; !(arg->ui & 1 << i); i++) ; */
-/* 			selmon->pertag->curtag = i + 1; */
-/* 		} */
-/* 	} else { */
-/* 		tmptag = selmon->pertag->prevtag; */
-/* 		selmon->pertag->prevtag = selmon->pertag->curtag; */
-/* 		selmon->pertag->curtag = tmptag; */
-/* 	} */
-
-/* 	selmon->nmaster = selmon->pertag->nmasters[selmon->pertag->curtag]; */
-/* 	selmon->mfact = selmon->pertag->mfacts[selmon->pertag->curtag]; */
-/* 	selmon->sellt = selmon->pertag->sellts[selmon->pertag->curtag]; */
-/* 	selmon->lt[selmon->sellt] = selmon->pertag->ltidxs[selmon->pertag->curtag][selmon->sellt]; */
-/* 	selmon->lt[selmon->sellt^1] = selmon->pertag->ltidxs[selmon->pertag->curtag][selmon->sellt^1]; */
-
-/* 	if (selmon->showbar != selmon->pertag->showbars[selmon->pertag->curtag]) */
-/* 		togglebar(NULL); */
+/*   if(arg->ui & TAGMASK) */
 /*     selmon->tagset[selmon->seltags] = arg->ui & TAGMASK; */
 /*   focus(NULL); */
 /*   arrange(selmon); */
-/*   	updatecurrentdesktop(); */
 /* } */
+
+
+void
+view(const Arg *arg)
+{
+  int i;
+  unsigned int tmptag;
+
+  if ((arg->ui & TAGMASK) == selmon->tagset[selmon->seltags])
+    return;
+  switchtag();
+  selmon->seltags ^= 1; /* toggle sel tagset */
+  if (arg->ui & TAGMASK) {
+    selmon->pertag->prevtag = selmon->pertag->curtag;
+    selmon->tagset[selmon->seltags] = arg->ui & TAGMASK;
+
+		if (arg->ui == ~0)
+			selmon->pertag->curtag = 0;
+		else {
+			for (i = 0; !(arg->ui & 1 << i); i++) ;
+			selmon->pertag->curtag = i + 1;
+		}
+	} else {
+		tmptag = selmon->pertag->prevtag;
+		selmon->pertag->prevtag = selmon->pertag->curtag;
+		selmon->pertag->curtag = tmptag;
+	}
+
+	selmon->nmaster = selmon->pertag->nmasters[selmon->pertag->curtag];
+	selmon->mfact = selmon->pertag->mfacts[selmon->pertag->curtag];
+	selmon->sellt = selmon->pertag->sellts[selmon->pertag->curtag];
+	selmon->lt[selmon->sellt] = selmon->pertag->ltidxs[selmon->pertag->curtag][selmon->sellt];
+	selmon->lt[selmon->sellt^1] = selmon->pertag->ltidxs[selmon->pertag->curtag][selmon->sellt^1];
+
+	if (selmon->showbar != selmon->pertag->showbars[selmon->pertag->curtag])
+    togglebar(NULL);
+  /* selmon->tagset[selmon->seltags] = arg->ui & TAGMASK; */
+  focus(NULL);
+  arrange(selmon);
+  updatecurrentdesktop();
+}
 
 
 Client
