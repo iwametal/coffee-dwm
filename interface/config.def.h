@@ -410,7 +410,9 @@ static Button buttons[] = {
     { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
     { ClkTabBar,            0,              Button1,        focuswin,       {0} },
     { ClkTabBar,            0,              Button1,        focuswin,       {0} },
-    { ClkTabPrev,           0,              Button1,        movestack,      { .i = -1 } },
-    { ClkTabNext,           0,              Button1,        movestack,      { .i = +1 } },
+    { ClkTagBar,		        0,		          Button4,	      shiftview,      {.i = -1} },
+    { ClkTagBar,		        0,		          Button5,	      shiftview,      {.i = 1} },
+    { ClkTabPrev,           0,              Button1,        movestack,      {.i = -1} },
+    { ClkTabNext,           0,              Button1,        movestack,      {.i = +1} },
     { ClkTabClose,          0,              Button1,        killclient,     {0} },
 };
