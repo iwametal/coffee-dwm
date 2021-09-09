@@ -1,5 +1,5 @@
 .ccls*
 drw.o
-dwm
+dwm/dwm
 dwm.o
 util.o
