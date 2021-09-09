@@ -183,7 +183,7 @@ struct Client {
   int bw, oldbw;
   unsigned int tags;
   int isfixed, iscentered, isfloating, isurgent, neverfocus, oldstate,
-      isfullscreen;
+      isfullscreen, isterminal;
 	int beingmoved;
   Client *next;
   Client *snext;
@@ -210,6 +210,7 @@ typedef struct {
   unsigned int tags;
   int iscentered;
   int isfloating;
+  int isterminal;
   int monitor;
 } Rule;
 
@@ -476,6 +477,7 @@ applyrules(Client *c)
     if ((!r->title || strstr(c->name, r->title)) &&
         (!r->class || strstr(class, r->class)) &&
         (!r->instance || strstr(instance, r->instance))) {
+      c->isterminal = r->isterminal;
       c->iscentered = r->iscentered;
       c->isfloating = r->isfloating;
       c->tags |= r->tags;
