@@ -27,10 +27,15 @@ This is my coffee's DWM, with all resources I value, mostly efficiency and perfo
 <p align="center">last update: Feb 1<sup>st</sup>, 2021</p>
 
 ## <sup>layer 2</sup> INSTALLATION
-Just clone this project in your machine and compile it:
 
 ```
 $ git clone https://github.com/chown-coffee/dwm.git
+$ cd dwm
+$ cp -R .dwm ~
+$ chmod -R 755 ~/.dwm/*.sh
+$ ln -s ~/.dwm/layoutmenu.sh /usr/bin/layoutmenu.sh # might need sudo
+$ mkdir -p ~/.local/share/fonts
+$ cp fonts/* ~/.local/share/fonts
 $ cd dwm
 $ make clean install # might need sudo
 ```

@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# setting some keuboard actions
+$HOME/.scripts/dwm/keyboard_actions.sh
+
+# DWM status
+dwmstatus 2>&1 >/dev/null &
+
+# loop
+#while true; do
+	#dwm >/dev/null 2>&1
+#done
+
+# status bar
+# $HOME/.scripts/dwmstatusbar/launch_dwm_statusbar.sh
+
+# start st
+$HOME/.scripts/dwm/startst
+
+# start dunst
+systemctl start --user dunst
+~/.scripts/dwm/setwallpaper.sh
+
+xrdb merge ~/Public/xresources/ocean/.Xresources &
+
+picom -f & 
+
+xbacklight -set 10 &
+
+~/.dwm/bars/onedark.sh &
+
+dwm
