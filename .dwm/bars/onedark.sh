@@ -84,7 +84,7 @@ brightness() {
 }
 
 mem() {
-  printf "^c#7797b7^^b#11141e^ "
+  printf "^c#7797b7^^b#0f131b^ "
   printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) | $(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g)"
 }
 
@@ -111,8 +111,16 @@ wlan() {
 }
 
 clock() {
-  printf "^c#000000^^b#9a62dd^ 󱑆 "
-  printf "^c#000000^^b#b084f5^ $(date '+%a, %I:%M %p') "
+
+  # marine blue scheme
+  printf "^c#0f131b^^b#6282a2^ 󱑆 "
+  printf "^c#1e222a^^b#7c9cbc^ $(date '+%a, %I:%M %p') "
+  
+  # purple scheme
+  # printf "^c#000000^^b#9a62dd^ 󱑆 "
+  # printf "^c#000000^^b#b084f5^ $(date '+%a, %I:%M %p') "
+
+  # blue scheme
   # printf "^c#1e222a^ ^b#668ee3^ 󱑆 "
   # printf "^c#1e222a^^b#7aa2f7^ $(date '+%a, %I:%M %p') "
 }
