@@ -148,11 +148,16 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
+
 #define TAGKEYS(KEY,TAG) \
 { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+
+#define STACKKEYS(MOD,ACTION) \
+{ MOD,	XK_j,	ACTION##stack,	{.i = INC(+1) } }, \
+{ MOD,	XK_k,	ACTION##stack,	{.i = INC(-1) } }, \
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -161,7 +166,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = {  "st", NULL }; // change this to your term
-static const char *rofi[] = {"rofi", "-show", "drun", NULL };
+/* static const char *rofi[] = {"rofi", "-show", "drun", NULL }; */
 static const char *layoutmenu_cmd = "/home/coffee/.dwm/layoutmenu.sh";
 static const char *xi[] = {"xbacklight", "-inc", "7", NULL};
 static const char *xd[] = {"xbacklight", "-dec", "7", NULL};
@@ -176,8 +181,6 @@ static Key keys[] = {
   {0, XF86MonBrightnessUp, spawn, {.v = xi}},
   { MODKEY,                      XK_b,      togglebar, {0} },
   /* { MODKEY|ControlMask,                      XK_w,      tabmode,        { -1 } }, */
-  { MODKEY,                      XK_j,      focusstack, {.i = +1 } },
-  { MODKEY,                      XK_k,      focusstack, {.i = -1 } },
   { MODKEY|Mod1Mask|ControlMask, XK_i,      incnmaster, {.i = +1 } },
   { MODKEY|Mod1Mask|ControlMask, XK_d,      incnmaster, {.i = -1 } },
   { MODKEY,                      XK_h,      setmfact,   {.f = -0.05} },
@@ -190,16 +193,19 @@ static Key keys[] = {
   { MODKEY,                      XK_Return, zoom,       {0} },
 
   // view
+  STACKKEYS(MODKEY,                          focus)
+	STACKKEYS(MODKEY|ShiftMask,                push)
   { MODKEY,             XK_Tab,       view,       {0} },
   { MODKEY,             XK_backslash, view,       {0} },
-  { Mod1Mask,		        XK_Tab,	      shiftview,  { .i = 1 } },
-  { Mod1Mask|ShiftMask, XK_Tab,       shiftview,  { .i = -1 } },
-  { MODKEY,			        XK_g,		      shiftview,  { .i = -1 } },
-  { MODKEY|ShiftMask,		XK_g,		      shifttag,	  { .i = -1 } },
-  { MODKEY,			        XK_semicolon, shiftview,  { .i = 1 } },
-  { MODKEY|ShiftMask,		XK_semicolon, shifttag,	  { .i = 1 } },
-  /* { MODKEY,             XK_v,         hidewin,    {0} }, */
-  /* { MODKEY|ShiftMask,   XK_v,         restorewin, {0} }, */
+  { Mod1Mask,		        XK_Tab,	      shiftview,  {.i = 1} },
+  { Mod1Mask|ShiftMask, XK_Tab,       shiftview,  {.i = -1} },
+  { MODKEY,			        XK_g,		      shiftview,  {.i = -1} },
+  { MODKEY|ShiftMask,		XK_g,		      shifttag,	  {.i = -1} },
+  { MODKEY,			        XK_semicolon, shiftview,  {.i = 1} },
+  { MODKEY|ShiftMask,		XK_semicolon, shifttag,	  {.i = 1} },
+  { MODKEY,             XK_e,         togglewin,  {0} },
+  /* { MODKEY,             XK_e,         hidewin,    {0} }, */
+  /* { MODKEY|ShiftMask,   XK_e,         restorewin, {0} }, */
   { MODKEY,             XK_space,     zoom,       {0} },
 
   // browser
@@ -311,66 +317,66 @@ static Key keys[] = {
   /* { MODKEY|ShiftMask,             XK_w, 	        setborderpx,    {.i = default_border } }, */
 
   TAGKEYS(           XK_1, 0)
-    TAGKEYS(           XK_2, 1)
-    TAGKEYS(           XK_3, 2)
-    TAGKEYS(           XK_4, 3)
-    TAGKEYS(           XK_5, 4)
-    TAGKEYS(           XK_6, 5)
-    TAGKEYS(           XK_7, 6)
-    TAGKEYS(           XK_8, 7)
-    TAGKEYS(           XK_9, 8)
-    { MODKEY|Mod1Mask, XK_q, quit, {0} },
+  TAGKEYS(           XK_2, 1)
+  TAGKEYS(           XK_3, 2)
+  TAGKEYS(           XK_4, 3)
+  TAGKEYS(           XK_5, 4)
+  TAGKEYS(           XK_6, 5)
+  TAGKEYS(           XK_7, 6)
+  TAGKEYS(           XK_8, 7)
+  TAGKEYS(           XK_9, 8)
+  { MODKEY|Mod1Mask, XK_q, quit, {0} },
 
-  // programs
-    { MODKEY|ControlMask, XK_d, spawn, SHCMD("discord") },
-    { MODKEY|ControlMask, XK_s, spawn, SHCMD("slack") },
+// programs
+  { MODKEY|ControlMask, XK_d, spawn, SHCMD("discord") },
+  { MODKEY|ControlMask, XK_s, spawn, SHCMD("slack") },
 
-    // notification
-    { ControlMask|ShiftMask,          XK_space, spawn, SHCMD("dunstctl close-all") },
-    { ControlMask|ShiftMask|Mod1Mask, XK_space, spawn, SHCMD("dunstctl set-paused toggle") },
+  // notification
+  { ControlMask|ShiftMask,          XK_space, spawn, SHCMD("dunstctl close-all") },
+  { ControlMask|ShiftMask|Mod1Mask, XK_space, spawn, SHCMD("dunstctl set-paused toggle") },
 
-    // scripts
-    { MODKEY|Mod1Mask|ControlMask,           XK_c,     spawn,	SHCMD(TERMINAL " -ig 120x35+640+200 sudo $HOME/.scripts/cache/drop_cache_full") },
-    { MODKEY|Mod1Mask|ControlMask,           XK_s,     spawn,	SHCMD(TERMINAL " -ig 120x35+640+200 sudo $HOME/.scripts/swap/drop_swap.sh") },
-    { MODKEY|Mod1Mask|ControlMask,           XK_j,     spawn,	SHCMD("$HOME/.scripts/dwm/java/change_java_version.sh") },
-    { MODKEY|Mod1Mask|ControlMask,           XK_v,     spawn,	SHCMD("$HOME/.scripts/vpn/cisco/vpnmenu.sh") },
-    { MODKEY|Mod1Mask|ControlMask,           XK_p,     spawn,	SHCMD("$HOME/.scripts/dwm/pacman/pacmenu.sh") },
-    { MODKEY|ShiftMask,		                   XK_q,     spawn, SHCMD("$HOME/.scripts/dwm/halt/opt_slock") },
-    { MODKEY|Mod1Mask|ControlMask|ShiftMask, XK_q,     spawn, SHCMD("$HOME/.scripts/dwm/halt/opt_halt") },
-    { MODKEY|Mod1Mask|ControlMask|ShiftMask, XK_r,     spawn, SHCMD("$HOME/.scripts/dwm/halt/opt_reboot") },
-    { MODKEY|Mod1Mask|ControlMask|ShiftMask, XK_h,     spawn, SHCMD("$HOME/.scripts/dwm/halt/halt.sh") },
-    { MODKEY|Mod1Mask|ControlMask|ShiftMask, XK_k,     spawn, SHCMD("$HOME/.scripts/dwm/process/kill_process.sh") },
-    { MODKEY|Mod1Mask|ControlMask,           XK_n,     spawn,	SHCMD("$HOME/.scripts/notification/send/run_notify_send_test.sh") },
-    { ControlMask|ShiftMask,                 XK_space, spawn, SHCMD("dunstctl close-all") },
-    { ControlMask|ShiftMask|Mod1Mask,        XK_space, spawn, SHCMD("dunstctl set-paused toggle") },
+  // scripts
+  { MODKEY|Mod1Mask|ControlMask,           XK_c,     spawn,	SHCMD(TERMINAL " -ig 120x35+640+200 sudo $HOME/.scripts/cache/drop_cache_full") },
+  { MODKEY|Mod1Mask|ControlMask,           XK_s,     spawn,	SHCMD(TERMINAL " -ig 120x35+640+200 sudo $HOME/.scripts/swap/drop_swap.sh") },
+  { MODKEY|Mod1Mask|ControlMask,           XK_j,     spawn,	SHCMD("$HOME/.scripts/dwm/java/change_java_version.sh") },
+  { MODKEY|Mod1Mask|ControlMask,           XK_v,     spawn,	SHCMD("$HOME/.scripts/vpn/cisco/vpnmenu.sh") },
+  { MODKEY|Mod1Mask|ControlMask,           XK_p,     spawn,	SHCMD("$HOME/.scripts/dwm/pacman/pacmenu.sh") },
+  { MODKEY|ShiftMask,		                   XK_q,     spawn, SHCMD("$HOME/.scripts/dwm/halt/opt_slock") },
+  { MODKEY|Mod1Mask|ControlMask|ShiftMask, XK_q,     spawn, SHCMD("$HOME/.scripts/dwm/halt/opt_halt") },
+  { MODKEY|Mod1Mask|ControlMask|ShiftMask, XK_r,     spawn, SHCMD("$HOME/.scripts/dwm/halt/opt_reboot") },
+  { MODKEY|Mod1Mask|ControlMask|ShiftMask, XK_h,     spawn, SHCMD("$HOME/.scripts/dwm/halt/halt.sh") },
+  { MODKEY|Mod1Mask|ControlMask|ShiftMask, XK_k,     spawn, SHCMD("$HOME/.scripts/dwm/process/kill_process.sh") },
+  { MODKEY|Mod1Mask|ControlMask,           XK_n,     spawn,	SHCMD("$HOME/.scripts/notification/send/run_notify_send_test.sh") },
+  { ControlMask|ShiftMask,                 XK_space, spawn, SHCMD("dunstctl close-all") },
+  { ControlMask|ShiftMask|Mod1Mask,        XK_space, spawn, SHCMD("dunstctl set-paused toggle") },
 
-    // print
-    { 0,           XK_Print, spawn, SHCMD("flameshot full -c") },
-    { ControlMask, XK_Print, spawn, SHCMD("[[ ! -d \"$HOME/Pictures/screenshot\" ]] && mkdir -p \"$HOME/Pictures/screenshot\" && flameshot full -p $HOME/Pictures/screenshot || flameshot full -p $HOME/Pictures/screenshot") },
-    { ShiftMask,   XK_Print, spawn, SHCMD("flameshot gui") },
+  // print
+  { 0,           XK_Print, spawn, SHCMD("flameshot full -c") },
+  { ControlMask, XK_Print, spawn, SHCMD("[[ ! -d \"$HOME/Pictures/screenshot\" ]] && mkdir -p \"$HOME/Pictures/screenshot\" && flameshot full -p $HOME/Pictures/screenshot || flameshot full -p $HOME/Pictures/screenshot") },
+  { ShiftMask,   XK_Print, spawn, SHCMD("flameshot gui") },
 
-    /* { MODKEY|ShiftMask,             XK_r,      quit,           {1} }, */
+  /* { MODKEY|ShiftMask,             XK_r,      quit,           {1} }, */
 
-    // extras
-    { MODKEY, XK_F9,          spawn, SHCMD("gromit-mpx") },
-    { MODKEY, XK_Scroll_Lock, spawn, SHCMD("killall screenkey || screenkey &") },
-    /* { 0,                  XF86XK_AudioMicMute,      spawn, SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") }, */
-    /* { 0,                  XF86XK_PowerOff,		      spawn, SHCMD("sysact") }, */
-    /* { 0,                  XF86XK_Calculator,	      spawn, SHCMD(TERMINAL " -e bc -l") }, */
-    /* { 0,                  XF86XK_WWW,		            spawn, SHCMD("$BROWSER") }, */
-    /* { 0,                  XF86XK_DOS,		            spawn, SHCMD(TERMINAL) }, */
-    /* { 0,                  XF86XK_ScreenSaver,	      spawn, SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv") }, */
-    /* { 0,                  XF86XK_TaskPane,		      spawn, SHCMD(TERMINAL " -e htop") }, */
-    /* { 0,                  XF86XK_Mail,		          spawn, SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks") }, */
-    /* { 0,                  XF86XK_MyComputer,	      spawn, SHCMD(TERMINAL " -e lf /") }, */
-    /* { 0,                  XF86XK_Launch1,		        spawn, SHCMD("xset dpms force off") }, */
-    /* { 0,                  XF86XK_TouchpadToggle,    spawn, SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") }, */
-    /* { 0,                  XF86XK_TouchpadOff,	      spawn, SHCMD("synclient TouchpadOff=1") }, */
-    /* { 0,                  XF86XK_TouchpadOn,		    spawn, SHCMD("synclient TouchpadOff=0") }, */
-    /* { 0,                  XF86XK_MonBrightnessUp,	  spawn, SHCMD("xbacklight -inc 15") }, */
-    /* { 0,                  XF86XK_MonBrightnessDown, spawn, SHCMD("xbacklight -dec 15") }, */
-    /* { 0,                                     XF86XK_Sleep, spawn,         SHCMD("sudo -A zzz") }, */
-    /* { 0, XF86XK_Battery,		spawn,		SHCMD("") }, */
+  // extras
+  { MODKEY, XK_F9,          spawn, SHCMD("gromit-mpx") },
+  { MODKEY, XK_Scroll_Lock, spawn, SHCMD("killall screenkey || screenkey &") },
+  /* { 0,                  XF86XK_AudioMicMute,      spawn, SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") }, */
+  /* { 0,                  XF86XK_PowerOff,		      spawn, SHCMD("sysact") }, */
+  /* { 0,                  XF86XK_Calculator,	      spawn, SHCMD(TERMINAL " -e bc -l") }, */
+  /* { 0,                  XF86XK_WWW,		            spawn, SHCMD("$BROWSER") }, */
+  /* { 0,                  XF86XK_DOS,		            spawn, SHCMD(TERMINAL) }, */
+  /* { 0,                  XF86XK_ScreenSaver,	      spawn, SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv") }, */
+  /* { 0,                  XF86XK_TaskPane,		      spawn, SHCMD(TERMINAL " -e htop") }, */
+  /* { 0,                  XF86XK_Mail,		          spawn, SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks") }, */
+  /* { 0,                  XF86XK_MyComputer,	      spawn, SHCMD(TERMINAL " -e lf /") }, */
+  /* { 0,                  XF86XK_Launch1,		        spawn, SHCMD("xset dpms force off") }, */
+  /* { 0,                  XF86XK_TouchpadToggle,    spawn, SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") }, */
+  /* { 0,                  XF86XK_TouchpadOff,	      spawn, SHCMD("synclient TouchpadOff=1") }, */
+  /* { 0,                  XF86XK_TouchpadOn,		    spawn, SHCMD("synclient TouchpadOff=0") }, */
+  /* { 0,                  XF86XK_MonBrightnessUp,	  spawn, SHCMD("xbacklight -inc 15") }, */
+  /* { 0,                  XF86XK_MonBrightnessDown, spawn, SHCMD("xbacklight -dec 15") }, */
+  /* { 0,                                     XF86XK_Sleep, spawn,         SHCMD("sudo -A zzz") }, */
+  /* { 0, XF86XK_Battery,		spawn,		SHCMD("") }, */
 
 };
 

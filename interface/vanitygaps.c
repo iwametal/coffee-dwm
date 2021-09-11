@@ -51,16 +51,16 @@ incrgaps(const Arg *arg)
 }
 
 
-void
-incrigaps(const Arg *arg)
-{
-  setgaps(
-      selmon->gappoh,
-      selmon->gappov,
-      selmon->gappih + arg->i,
-      selmon->gappiv + arg->i
-      );
-}
+/* void */
+/* incrigaps(const Arg *arg) */
+/* { */
+/*   setgaps( */
+/*       selmon->gappoh, */
+/*       selmon->gappov, */
+/*       selmon->gappih + arg->i, */
+/*       selmon->gappiv + arg->i */
+/*       ); */
+/* } */
 
 
 void
