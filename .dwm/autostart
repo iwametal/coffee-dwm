@@ -21,7 +21,7 @@ $HOME/.scripts/dwm/startst
 systemctl start --user dunst
 ~/.scripts/dwm/setwallpaper.sh
 
-xrdb merge ~/Public/xresources/ocean/.Xresources &
+# xrdb merge ~/Public/xresources/ocean/.Xresources &
 
 picom -f & 
 
