@@ -37,6 +37,7 @@ $ ln -s ~/.dwm/layoutmenu.sh /usr/bin/layoutmenu.sh # might need sudo
 $ mkdir -p ~/.local/share/fonts
 $ cp fonts/* ~/.local/share/fonts
 $ cd dwm
+$ # change `/home/coffee/.dwm/layoutmenu.sh` to `/home/youruser/.dwm/layoutmenu.sh`
 $ make clean install # might need sudo
 ```
 
