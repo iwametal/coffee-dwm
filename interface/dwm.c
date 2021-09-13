@@ -3566,14 +3566,14 @@ togglewin(const Arg *arg)
       && (HIDDEN(hiddenWinStack[i])
         && hiddenWinStack[i]->tags == selmon->tagset[selmon->seltags]))
   {
-      show(hiddenWinStack[i]);
-      focus(hiddenWinStack[i]);
-      restack(selmon);
-      for (int j = i; j < hiddenWinStackTop; ++j) {
-        hiddenWinStack[j] = hiddenWinStack[j + 1];
-      }
-      --hiddenWinStackTop;
-      return;
+    show(hiddenWinStack[i]);
+    focus(hiddenWinStack[i]);
+    restack(selmon);
+    for (int j = i; j < hiddenWinStackTop; ++j) {
+      hiddenWinStack[j] = hiddenWinStack[j + 1];
+    }
+    --hiddenWinStackTop;
+    return;
   }
 
   if (!selmon->sel)

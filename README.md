@@ -42,6 +42,7 @@ $ make clean install # might need sudo
 ```
 
 ## <sup>layer 3</sup> INFO
+These configurations are based in [chadwm](https://github.com/siduck76/chadwm).
 I'll let all the important things about the interface below, for you to get into it, however you may check the [config.h](https://github.com/chown-coffee/dwm/blob/master/config.h) file yourself and make your own configurations (actually, you should do that). Also, I'd like to say I got some really useful resources from [Luke Smith](https://github.com/LukeSmithxyz/dwm)'s config, which saved me a lot of time for build my own. So, a special thanks to him.
 
 ## <sup>layer 4</sup> USAGE
