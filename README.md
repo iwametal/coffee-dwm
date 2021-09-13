@@ -43,7 +43,7 @@ $ make clean install # might need sudo
 
 ## <sup>layer 3</sup> INFO
 These configurations are based in [chadwm](https://github.com/siduck76/chadwm).
-I'll let all the important things about the interface below, for you to get into it, however you may check the [config.h](https://github.com/chown-coffee/dwm/blob/master/config.h) file yourself and make your own configurations (actually, you should do that). Also, I'd like to say I got some really useful resources from [Luke Smith](https://github.com/LukeSmithxyz/dwm)'s config, which saved me a lot of time for build my own. So, a special thanks to him.
+I'll let all the important things about the interface below, for you to get into it, however you may check the [config.h](https://github.com/chown-coffee/dwm/blob/master/config.h) file yourself and make your own configurations (actually, you should do that). Also, I'd like to say I got some really useful resources from [Luke Smith](https://github.com/LukeSmithxyz/dwm)'s config, which saved me a lot of time for build my own. So, a special thanks to him and Siduck76, the original creator of chadwm.
 
 ## <sup>layer 4</sup> USAGE
 I use xorg as display server and xinitrc as my dwm launcher. If you want to check, there is my [~/.xinirc](https://github.com/chown-coffee/linux-config/blob/master/.xinitrc) file. If you opt for the same method, then you just need to type `startx` in your tty, and voilá, your DWM is launched.
