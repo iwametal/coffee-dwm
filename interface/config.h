@@ -280,7 +280,7 @@ static Key keys[] = {
   // terminal
   { MODKEY,			                           XK_r,		  spawn,         SHCMD(TERMINAL " -e ranger") },
   { MODKEY|ControlMask,                    XK_r,		  spawn,         SHCMD(TERMINAL " -e vifm") },
-  { MODKEY|ShiftMask,		                   XK_r,		  spawn,         SHCMD(TERMINAL " -e bashtop") },
+  { MODKEY|ShiftMask,		                   XK_r,		  spawn,         SHCMD(TERMINAL " -e htop") },
   { MODKEY|ControlMask|Mod1Mask|ShiftMask, XK_Return,	togglescratch, {.ui = 1} },
   { MODKEY|ShiftMask,                      XK_Return, togglescratch, {.ui = 0} },
   { MODKEY,                                XK_Return, spawn,         {.v = termcmd }}, 
