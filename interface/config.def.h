@@ -255,8 +255,8 @@ static Key keys[] = {
 
   // music
   { MODKEY|ControlMask, XK_p,            spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") },
-  { MODKEY|ControlMask, XK_bracketleft,  spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") },
-  { MODKEY|ControlMask, XK_bracketright, spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") },
+  { MODKEY|ControlMask, XK_comma,        spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") },
+  { MODKEY|ControlMask, XK_period,       spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") },
   { MODKEY,          	  XK_p,			       spawn,	SHCMD("mpc toggle") },
   { MODKEY,			        XK_bracketleft,  spawn,	SHCMD("mpc seek -10") },
   { MODKEY|ShiftMask,	  XK_bracketleft,  spawn,	SHCMD("mpc seek -60") },
@@ -303,20 +303,20 @@ static Key keys[] = {
   { MODKEY|ShiftMask,                      XK_f,      setlayout,      {.v = &layouts[1]} },
   /* { MODKEY,                                XK_m,      setlayout,      {.v = &layouts[2]} }, */
   /* { MODKEY|ControlMask,                    XK_g,      setlayout,      {.v = &layouts[10]} }, */
-  { MODKEY|ControlMask|ShiftMask,          XK_t,      setlayout,      {.v = &layouts[13]} },
-  { MODKEY|ControlMask,		                 XK_comma,  cyclelayout,    {.i = -1 } },
-  { MODKEY|ControlMask,                    XK_period, cyclelayout,    {.i = +1 } },
-  { MODKEY|ShiftMask,                      XK_space,  togglefloating, {0} },
-  { MODKEY,                                XK_f,      togglefullscr,  {0} },
-  { MODKEY,                                XK_0,      view,           {.ui = ~0 } },
-  { MODKEY|ShiftMask,                      XK_0,      tag,            {.ui = ~0 } },
-  { MODKEY,                                XK_comma,  focusmon,       {.i = -1 } },
-  { MODKEY,                                XK_period, focusmon,       {.i = +1 } },
-  { MODKEY|ShiftMask,                      XK_comma,  tagmon,         {.i = -1 } },
-  { MODKEY|ShiftMask,                      XK_period, tagmon,         {.i = +1 } },
-  { MODKEY|ShiftMask|ControlMask|Mod1Mask, XK_minus, 	setborderpx,    {.i = -1 } },
-  { MODKEY|ShiftMask|ControlMask|Mod1Mask, XK_p, 	    setborderpx,    {.i = +1 } },
-  /* { MODKEY|ShiftMask,             XK_w, 	        setborderpx,    {.i = default_border } }, */
+  { MODKEY|ControlMask|ShiftMask,          XK_t,            setlayout,      {.v = &layouts[13]} },
+  { MODKEY|ControlMask,		                 XK_bracketleft,  cyclelayout,    {.i = -1 } },
+  { MODKEY|ControlMask,                    XK_bracketright, cyclelayout,    {.i = +1 } },
+  { MODKEY|ShiftMask,                      XK_space,        togglefloating, {0} },
+  { MODKEY,                                XK_f,            togglefullscr,  {0} },
+  { MODKEY,                                XK_0,            view,           {.ui = ~0 } },
+  { MODKEY|ShiftMask,                      XK_0,            tag,            {.ui = ~0 } },
+  /* { MODKEY,                                XK_comma,        focusmon,       {.i = -1 } }, */
+  /* { MODKEY,                                XK_period,       focusmon,       {.i = +1 } }, */
+  /* { MODKEY|ShiftMask,                      XK_comma,        tagmon,         {.i = -1 } }, */
+  /* { MODKEY|ShiftMask,                      XK_period,       tagmon,         {.i = +1 } }, */
+  { MODKEY|ShiftMask|ControlMask|Mod1Mask, XK_minus, 	      setborderpx,    {.i = -1 } },
+  { MODKEY|ShiftMask|ControlMask|Mod1Mask, XK_p, 	          setborderpx,    {.i = +1 } },
+  /* { MODKEY|ShiftMask,                      XK_w, 	          setborderpx,    {.i = default_border } }, */
 
   TAGKEYS(           XK_1, 0)
   TAGKEYS(           XK_2, 1)
