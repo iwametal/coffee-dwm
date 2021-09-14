@@ -105,7 +105,8 @@ brightness() {
 }
 
 mem() {
-  printf "^c#7797b7^^b#0f131b^ "
+  # printf "^c#7797b7^^b#0f131b^ "
+  printf "^c#ebcb8b^^b#0f131b^ "
   printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) | $(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g)"
 }
 
@@ -114,9 +115,10 @@ wlan() {
   net_icon=`printf "%s%s%s\n" "$wifiicon" "$(sed "s/down//;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"`
 
   if [ X"$net_icon" = X"" ]; then
-    printf "^c#bf616a^^b#11141e^ $net_icon"
+    printf "^c#bd93f9^^b#11141e^ $net_icon"
   else
-    printf "^c#7797b7^^b#11141e^ $net_icon"
+    printf "^c#9266d7^^b#11141e^ $net_icon"
+    # printf "^c#7797b7^^b#11141e^ $net_icon"
   fi
 
   case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
