@@ -13,26 +13,47 @@ pause_cache_timeout()
 
 music()
 {
-	# m_symbol_=$(mpc | head -n2 | tail -n1| cut -f 1 | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;s/\\[playing\\].*/🎧/g;/^ERROR/Q" | paste -sd ' ' -;)
-	m_symbol_=$(mpc 2>/dev/null | head -n2 | tail -n1| cut -f 1 | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*//g;s/\\[playing\\].*/🎧/g;/^ERROR/Q" | paste -sd ' ' -;)
+  title=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:org.mpris.MediaPlayer2.Player string:Metadata 2>/dev/null | awk '/artist/{getline;getline;print;}' | cut -d '"' -f 2)
 
-	if [ ! -z "$m_symbol_" ] ; then
-		music_=$(mpc 2>/dev/null | sed "/^volume:/d;s/\\&/&amp;/g;/\\[paused\\].*/d;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -;)
+  if [ ! -z "$title" ] ; then
+    name=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:org.mpris.MediaPlayer2.Player string:Metadata 2>/dev/null | sed -n '/title/{n;p}' | cut -d '"' -f 2)
 
-		if [ ${#music_} -gt 39 ] ; then
-			music_="『$(echo $music_|cut -c1-39)...』"
-		else
-			music_="『$music_』"
-		fi
 
-		# [ X"$m_symbol_" = X"" ] && pause_cache_timeout || cache_timeout=
+    status=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'PlaybackStatus'|egrep -A 1 "string"|cut -b 26-|cut -d '"' -f 1|egrep -v ^$)
 
-    # printf "^c#b084f5^^b#11141e^ $music_  $m_symbol_ ^b#1e222a^"
-    # printf "^c#81A1C1^$music_ ^c#b084f5^$m_symbol_  ^b#11141e^"
-    printf "^c#b084f5^$m_symbol_ ^c#81A1C1^$music_"
-	else
-		music_=
-	fi
+    if [ "$status" = "Playing" ] ; then
+      symbol_="🎧"
+    elif [ "$status" = "Paused" ] ; then
+      symbol_=""
+    fi
+
+    music_="$title  $name"
+
+    printf "^c#b084f5^$symbol_ ^c#81A1C1^『$music_』"
+
+  else
+    m_symbol_=$(mpc 2>/dev/null | head -n2 | tail -n1| cut -f 1 | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*//g;s/\\[playing\\].*/🎧/g;/^ERROR/Q" | paste -sd ' ' -;)
+    # m_symbol_=$(mpc | head -n2 | tail -n1| cut -f 1 | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;s/\\[playing\\].*/🎧/g;/^ERROR/Q" | paste -sd ' ' -;)
+
+    if [ ! -z "$m_symbol_" ] ; then
+      music_=$(mpc 2>/dev/null | sed "/^volume:/d;s/\\&/&amp;/g;/\\[paused\\].*/d;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -;)
+
+      if [ ${#music_} -gt 39 ] ; then
+        music_="『$(echo $music_|cut -c1-39)...』"
+      else
+        music_="『$music_』"
+      fi
+
+      # [ X"$m_symbol_" = X"" ] && pause_cache_timeout || cache_timeout=
+
+      # printf "^c#b084f5^^b#11141e^ $music_  $m_symbol_ ^b#1e222a^"
+      # printf "^c#81A1C1^$music_ ^c#b084f5^$m_symbol_  ^b#11141e^"
+      printf "^c#b084f5^$m_symbol_ ^c#81A1C1^$music_"
+    else
+      music_=
+    fi
+
+  fi
 }
 
 cpu() {

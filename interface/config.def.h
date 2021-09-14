@@ -254,17 +254,19 @@ static Key keys[] = {
   { MODKEY,           XK_v,		                 spawn, SHCMD("$HOME/.scripts/shell/volume.sh -s") },
 
   // music
-  { MODKEY,			      XK_p,			               spawn,	SHCMD("mpc toggle") },
-  { MODKEY|ShiftMask,	XK_p,			               spawn,	SHCMD("mpc pause ; pauseallmpv") },
-  { MODKEY,			      XK_bracketleft,          spawn,	SHCMD("mpc seek -10") },
-  { MODKEY|ShiftMask,	XK_bracketleft,          spawn,	SHCMD("mpc seek -60") },
-  { MODKEY,			      XK_bracketright,         spawn,	SHCMD("mpc seek +10") },
-  { MODKEY|ShiftMask,	XK_bracketright,         spawn,	SHCMD("mpc seek +60") },
-  { MODKEY,			      XK_comma,	               spawn,	SHCMD("mpc prev") },
-  { MODKEY|ShiftMask,	XK_comma,	               spawn,	SHCMD("mpc seek 0%") },
-  { MODKEY,			      XK_period,	             spawn,	SHCMD("mpc next") },
-  { MODKEY|ShiftMask,	XK_period,	             spawn,	SHCMD("mpc repeat") },
-  { MODKEY,			      XK_m,		                 spawn,	SHCMD(TERMINAL " $HOME/.scripts/dwm/music/launch_ncmpcpp.sh") },
+  { MODKEY|ControlMask, XK_p,            spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") },
+  { MODKEY|ControlMask, XK_bracketleft,  spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") },
+  { MODKEY|ControlMask, XK_bracketright, spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") },
+  { MODKEY,          	  XK_p,			       spawn,	SHCMD("mpc toggle") },
+  { MODKEY,			        XK_bracketleft,  spawn,	SHCMD("mpc seek -10") },
+  { MODKEY|ShiftMask,	  XK_bracketleft,  spawn,	SHCMD("mpc seek -60") },
+  { MODKEY,			        XK_bracketright, spawn,	SHCMD("mpc seek +10") },
+  { MODKEY|ShiftMask,	  XK_bracketright, spawn,	SHCMD("mpc seek +60") },
+  { MODKEY,			        XK_comma,	       spawn,	SHCMD("mpc prev") },
+  { MODKEY|ShiftMask,	  XK_comma,	       spawn,	SHCMD("mpc seek 0%") },
+  { MODKEY,			        XK_period,	     spawn,	SHCMD("mpc next") },
+  { MODKEY|ShiftMask,	  XK_period,	     spawn,	SHCMD("mpc repeat") },
+  { MODKEY,			        XK_m,		         spawn,	SHCMD(TERMINAL " $HOME/.scripts/dwm/music/launch_ncmpcpp.sh") },
   /* { 0,                XF86XK_AudioMute,        spawn, SHCMD("pamixer -t") }, */
   /* { 0,                XF86XK_AudioPrev,		     spawn, SHCMD("mpc prev") }, */
   /* { 0,                XF86XK_AudioNext,		     spawn, SHCMD("mpc next") }, */
