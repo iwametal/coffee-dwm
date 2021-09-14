@@ -1,6 +1,10 @@
 # COFFEE's DWM
 
-## <sup>layer 1</sup> ABOUT
+## <sup>layer 1</sup> INFO
+These configurations are based in [chadwm](https://github.com/siduck76/chadwm).
+I'll let all the important things about the interface below, for you to get into it, however you may check the [config.h](https://github.com/chown-coffee/dwm/blob/master/config.h) file yourself and make your own configurations (actually, you should do that). Also, I'd like to say I got some really useful resources from [Luke Smith](https://github.com/LukeSmithxyz/dwm)'s config, which saved me a lot of time for build my own. So, a special thanks to him and Siduck76, the original creator of chadwm.
+
+## <sup>layer 2</sup> ABOUT
 This is my coffee's DWM, with all resources I value, mostly efficiency and performance, but also with a simplistic beauty look. I made these configs thinking in optimize both my work and daily usage the maximum as possible, with functions, rules and shortcuts for all considerable and frequently used programs, applications, tools and even personal scripts. It took a while, but I'm really happy with the result and probably will never get used to another interface again.
 
 `some looks:`
@@ -26,7 +30,7 @@ This is my coffee's DWM, with all resources I value, mostly efficiency and perfo
 
 <p align="center">last update: Feb 1<sup>st</sup>, 2021</p>
 
-## <sup>layer 2</sup> INSTALLATION
+## <sup>layer 3</sup> INSTALLATION
 
 ```
 $ git clone https://github.com/chown-coffee/dwm.git
@@ -40,10 +44,6 @@ $ cd dwm
 $ # change `/home/coffee/.dwm/layoutmenu.sh` to `/home/youruser/.dwm/layoutmenu.sh` inside interface/config.def.h
 $ make clean install # might need sudo
 ```
-
-## <sup>layer 3</sup> INFO
-These configurations are based in [chadwm](https://github.com/siduck76/chadwm).
-I'll let all the important things about the interface below, for you to get into it, however you may check the [config.h](https://github.com/chown-coffee/dwm/blob/master/config.h) file yourself and make your own configurations (actually, you should do that). Also, I'd like to say I got some really useful resources from [Luke Smith](https://github.com/LukeSmithxyz/dwm)'s config, which saved me a lot of time for build my own. So, a special thanks to him and Siduck76, the original creator of chadwm.
 
 ## <sup>layer 4</sup> USAGE
 I use xorg as display server and xinitrc as my dwm launcher. If you want to check, there is my [~/.xinirc](https://github.com/chown-coffee/linux-config/blob/master/.xinitrc) file. If you opt for the same method, then you just need to type `startx` in your tty, and voilá, your DWM is launched.
