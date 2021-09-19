@@ -18,7 +18,6 @@ music()
   if [ ! -z "$title" ] ; then
     name=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:org.mpris.MediaPlayer2.Player string:Metadata 2>/dev/null | sed -n '/title/{n;p}' | cut -d '"' -f 2)
 
-
     status=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'PlaybackStatus'|egrep -A 1 "string"|cut -b 26-|cut -d '"' -f 1|egrep -v ^$)
 
     if [ "$status" = "Playing" ] ; then
@@ -49,7 +48,6 @@ music()
 
       # printf "^c#b084f5^^b#11141e^ $music_  $m_symbol_ ^b#1e222a^"
       # printf "^c#81A1C1^$music_ ^c#b084f5^$m_symbol_  ^b#11141e^"
-      # printf "^c#b084f5^$m_symbol_ ^c#81A1C1^$music_"
       printf "^c#b084f5^$m_symbol_ ^c#4a6a8a^$music_"
     else
       music_=
@@ -64,11 +62,18 @@ cpu() {
   # # printf "^c#3b414d^ ^b#7ec7a2^ CPU"
   # printf "^c#3b414d^ ^b#668ee3^ CPU"
   # printf "^c#abb2bf^ ^b#353b45^ $cpu_val"
-  printf "^c#81A1C1^  $cpu_val"
+  printf "^c#bf616a^^b#161a22^  ^c#7797b7^$cpu_val"
+}
+
+disk_usage() {
+	disk_root=$(df -h|awk '{if ($6 == "/") {print}}'|awk '{print "/" $5}'|sed 's/\%//')
+	disk_home=$(df -h|awk '{if ($6 == "/home") {print}}'|awk '{print "~" $5}'|sed 's/\%//')
+
+  printf "^c#ebcb8b^^b#181c24^ 💾 ^c#7797b7^$disk_root%% ^b#171b23^- $disk_home%%"
 }
 
 update_icon() {
-  printf "^c#7ec7a2^^b#181c24^ ^b#171b24^"
+  printf "^c#7ec7a2^^b#191d25^ "
   # printf "^c#81A1C1^ "
 }
 
@@ -102,15 +107,15 @@ brightness() {
     echo -e "$backlight"
   }
 
-  printf "^c#bf616a^   "
-  printf "^c#bf616a^%.0f\n" $(backlight)
+  printf "^c#BF616A^   "
+  printf "^c#BF616A^%.0f\n" $(backlight)
 }
 
 mem() {
   # printf "^c#7797b7^^b#0f131b^ "
   # printf "^c#ebcb8b^^b#2E3440^ "
-  printf "^c#69ccff^^b#171a23^ "
-  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) ^c#545862^^b#151a21^| ^c#7797b7^$(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g)"
+  printf "^c#69ccff^^b#161921^ "
+  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) ^c#545862^^b#141820^| ^c#7797b7^$(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g) ^c#545869^^b#12161e^- $(free -h | awk '/^Swap/ { print $3 }' | sed s/i//g)"
 }
 
 wlan() {
@@ -144,7 +149,7 @@ clock() {
   
   # purple scheme
   printf "^c#000000^^b#9a62dd^ 󱑆 "
-  printf "^c#121419^^b#9266d7^$(date '+%a, %I:%M %p') "
+  printf "^c#121419^^b#9266d7^$(date '+╷%m.%d.%y╷ %H:%M')"
 
   # blue scheme
   # printf "^c#2E3440^^b#828dd1^ 󱑆 "
@@ -153,10 +158,10 @@ clock() {
 
 while true; do
 
-  [ $interval == 0 ] || [ $(($interval % 3600)) == 0 ] && updates=$(pkg_updates) && interval=0
+  [ $interval == 0 ] || [ $(($interval % 3600)) == 0 ] && updates=$(pkg_updates) && disk_u=$(disk_usage) && interval=0
   interval=$((interval + 1))
 
   # sleep 1 && xsetroot -name "$(update_icon) $updates $(batt) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-  sleep 1 && xsetroot -name "                     $(music) $(update_icon) $updates  $(mem) $(clock) $(wlan) "
+  sleep 1 && xsetroot -name "                     $(music) $(update_icon) $updates  $disk_u  $(cpu)  $(mem) $(clock) $(wlan) "
 
 done

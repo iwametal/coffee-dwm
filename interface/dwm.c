@@ -1819,7 +1819,8 @@ focusstack(const Arg *arg)
 
 void focuswin(const Arg *arg) {
   Client *c = NULL, *i;
-  int j, k;
+  /* int j, k; */
+  int j;
 
   if (arg->i > 0) {
     for (c = selmon->sel->next;

@@ -168,8 +168,8 @@ static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = {  "st", NULL }; // change this to your term
 /* static const char *rofi[] = {"rofi", "-show", "drun", NULL }; */
 static const char *layoutmenu_cmd = "/home/coffee/.dwm/layoutmenu.sh";
-static const char *xi[] = {"xbacklight", "-inc", "7", NULL};
-static const char *xd[] = {"xbacklight", "-dec", "7", NULL};
+/* static const char *xi[] = {"xbacklight", "-inc", "7", NULL}; */
+/* static const char *xd[] = {"xbacklight", "-dec", "7", NULL}; */
 
 static Key keys[] = {
   /* modifier                     key        function        argument */
@@ -177,10 +177,11 @@ static Key keys[] = {
 
   /* {MODKEY | ControlMask, XK_u, spawn, SHCMD("maim | xclip -selection clipboard -t image/png")}, */
   /* {MODKEY, XK_u, spawn,   SHCMD("maim --select | xclip -selection clipboard -t image/png")}, */
-  {0, XF86MonBrightnessDown, spawn, {.v = xd}},
-  {0, XF86MonBrightnessUp, spawn, {.v = xi}},
-  { MODKEY,                      XK_b,      togglebar, {0} },
-  /* { MODKEY|ControlMask,                      XK_w,      tabmode,        { -1 } }, */
+  /* {0,                            XF86MonBrightnessDown, spawn, {.v = xd}}, */
+  /* {0,                            XF86MonBrightnessUp, spawn, {.v = xi}}, */
+  { MODKEY,                      XK_b,      togglebar,  {0} },
+  { MODKEY|Mod1Mask|ControlMask, XK_b,      spawn,      SHCMD("[ X\"\" = X\"$(ps ax|grep toggle_statusbar|grep -v grep)\" ] && $HOME/.dwm/bars/toggle_statusbar.sh onedark") },
+  /* { MODKEY|ControlMask,          XK_w,      tabmode,    { -1 } }, */
   { MODKEY|Mod1Mask|ControlMask, XK_i,      incnmaster, {.i = +1 } },
   { MODKEY|Mod1Mask|ControlMask, XK_d,      incnmaster, {.i = -1 } },
   { MODKEY,                      XK_h,      setmfact,   {.f = -0.05} },
@@ -327,7 +328,8 @@ static Key keys[] = {
   TAGKEYS(           XK_7, 6)
   TAGKEYS(           XK_8, 7)
   TAGKEYS(           XK_9, 8)
-  { MODKEY|Mod1Mask, XK_q, quit, {0} },
+  { MODKEY|Mod1Mask, XK_q, spawn, SHCMD("/home/coffee/.dwm/bars/kill_statusbar.sh onedark") },
+  { MODKEY|Mod1Mask, XK_q, quit,  {0} },
 
 // programs
   { MODKEY|ControlMask, XK_d, spawn, SHCMD("discord") },

@@ -1,4 +1,5 @@
-static const char black[]       = "#1e222a";
+/* static const char black[]       = "#1e222a"; */
+static const char black[]       = "#1d2129";
 static const char gray2[]       = "#2e323a"; // unfocused window border
 static const char gray3[]       = "#545862";
 static const char gray4[]       = "#6d8dad";
@@ -26,4 +27,5 @@ static const char purple8[]     = "#9266d7";
 /* static const char purple6[]     = "#b084f5"; */
 /* static const char purple7[]     = "#b589fa"; */
 /* static const char purple8[]     = "#ba8eff"; */
-static const char col_borderbar[]  = "#1e222a"; // inner border
+/* static const char col_borderbar[]  = "#1e222a"; // inner border */
+static const char col_borderbar[]  = "#1d2129"; // inner border
