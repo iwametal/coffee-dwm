@@ -68,7 +68,7 @@ cpu() {
 }
 
 update_icon() {
-  printf "^c#7ec7a2^^b#181c24^ ^b#171b24^"
+  printf "^c#7ec7a2^^b#171b24^ ^b#151a21^"
   # printf "^c#81A1C1^ "
 }
 
@@ -80,7 +80,7 @@ pkg_updates() {
   if [ -z "$updates" ]; then
     printf "^c#7797b7^ fully updated"
   else
-    printf "^c#7797b7^$updates""u"
+    printf "^c#7797b7^$updates""^b#141721^u"
   fi
   # if [ -z "$updates" ]; then
   #   printf "^c#7ec7a2^ Fully Updated"
@@ -109,8 +109,8 @@ brightness() {
 mem() {
   # printf "^c#7797b7^^b#0f131b^ "
   # printf "^c#ebcb8b^^b#2E3440^ "
-  printf "^c#69ccff^^b#171a23^ "
-  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) ^c#545862^^b#151a21^| ^c#7797b7^$(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g)"
+  printf "^c#69ccff^^b#131621^ "
+  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) ^c#545862^^b#121419^| ^c#7797b7^$(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g)"
 }
 
 wlan() {
@@ -118,9 +118,9 @@ wlan() {
   net_icon=`printf "%s%s%s\n" "$wifiicon" "$(sed "s/down//;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"`
 
   if [ X"$net_icon" = X"" ]; then
-    printf "^c#bd93f9^^b#121419^ $net_icon"
+    printf "^c#bd93f9^^b#0f1113^ $net_icon"
   else
-    printf "^c#9266d7^^b#121419^ $net_icon"
+    printf "^c#9266d7^^b#0f1113^ $net_icon"
     # printf "^c#7797b7^^b#11141e^ $net_icon"
   fi
 
@@ -143,7 +143,7 @@ clock() {
   # printf "^c#1e222a^^b#7c9cbc^ $(date '+%a, %I:%M %p') "
   
   # purple scheme
-  printf "^c#000000^^b#9a62dd^ 󱑆 "
+  printf "^c#121419^^b#9a62dd^ 󱑆 "
   printf "^c#121419^^b#9266d7^$(date '+%a, %I:%M %p') "
 
   # blue scheme

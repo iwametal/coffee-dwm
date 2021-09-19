@@ -62,14 +62,14 @@ cpu() {
   # # printf "^c#3b414d^ ^b#7ec7a2^ CPU"
   # printf "^c#3b414d^ ^b#668ee3^ CPU"
   # printf "^c#abb2bf^ ^b#353b45^ $cpu_val"
-  printf "^c#bf616a^^b#161a22^  ^c#7797b7^$cpu_val"
+  printf "^c#bf616a^^b#161821^  ^c#7797b7^$cpu_val"
 }
 
 disk_usage() {
 	disk_root=$(df -h|awk '{if ($6 == "/") {print}}'|awk '{print "/" $5}'|sed 's/\%//')
 	disk_home=$(df -h|awk '{if ($6 == "/home") {print}}'|awk '{print "~" $5}'|sed 's/\%//')
 
-  printf "^c#ebcb8b^^b#181c24^ 💾 ^c#7797b7^$disk_root%% ^b#171b23^- $disk_home%%"
+  printf "^c#ebcb8b^^b#171b24^ 💾 ^c#7797b7^$disk_root%% ^b#171921^- $disk_home%%"
 }
 
 update_icon() {
@@ -85,7 +85,7 @@ pkg_updates() {
   if [ -z "$updates" ]; then
     printf "^c#7797b7^ fully updated"
   else
-    printf "^c#7797b7^$updates""u"
+    printf "^c#7797b7^$updates""^b#191b24^u"
   fi
   # if [ -z "$updates" ]; then
   #   printf "^c#7ec7a2^ Fully Updated"
@@ -114,8 +114,8 @@ brightness() {
 mem() {
   # printf "^c#7797b7^^b#0f131b^ "
   # printf "^c#ebcb8b^^b#2E3440^ "
-  printf "^c#69ccff^^b#161921^ "
-  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) ^c#545862^^b#141820^| ^c#7797b7^$(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g) ^c#545869^^b#12161e^- $(free -h | awk '/^Swap/ { print $3 }' | sed s/i//g)"
+  printf "^c#69ccff^^b#151820^ "
+  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) ^c#545862^^b#131719^| ^c#7797b7^$(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g) ^c#545869^^b#121419^- $(free -h | awk '/^Swap/ { print $3 }' | sed s/i//g)"
 }
 
 wlan() {
@@ -123,9 +123,9 @@ wlan() {
   net_icon=`printf "%s%s%s\n" "$wifiicon" "$(sed "s/down//;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"`
 
   if [ X"$net_icon" = X"" ]; then
-    printf "^c#bd93f9^^b#121419^ $net_icon"
+    printf "^c#bd93f9^^b#0f1113^ $net_icon"
   else
-    printf "^c#9266d7^^b#121419^ $net_icon"
+    printf "^c#9266d7^^b#0f1113^ $net_icon"
     # printf "^c#7797b7^^b#11141e^ $net_icon"
   fi
 
@@ -148,7 +148,7 @@ clock() {
   # printf "^c#1e222a^^b#7c9cbc^ $(date '+%a, %I:%M %p') "
   
   # purple scheme
-  printf "^c#000000^^b#9a62dd^ 󱑆 "
+  printf "^c#121419^^b#9a62dd^ 󱑆 "
   printf "^c#121419^^b#9266d7^$(date '+╷%m.%d.%y╷ %H:%M')"
 
   # blue scheme
