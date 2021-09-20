@@ -149,7 +149,8 @@ clock() {
   
   # purple scheme
   printf "^c#121419^^b#9a62dd^ 󱑆 "
-  printf "^c#121419^^b#9266d7^$(date '+╷%m.%d.%y╷ %H:%M')"
+  # printf "^c#121419^^b#9266d7^$(date '+╷%m.%d.%y╷ %H:%M')"
+  printf "^c#121419^^b#9266d7^$(date '+%H:%M ╷ %m.%d.%y')"
 
   # blue scheme
   # printf "^c#2E3440^^b#828dd1^ 󱑆 "
