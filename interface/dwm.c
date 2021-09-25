@@ -3563,10 +3563,8 @@ void
 togglewin(const Arg *arg)
 {
   int i = hiddenWinStackTop;
-  if ((i > -1)
-      && (HIDDEN(hiddenWinStack[i])
-        && hiddenWinStack[i]->tags == selmon->tagset[selmon->seltags]))
-  {
+  
+  if ((i > -1) && (HIDDEN(hiddenWinStack[i]))) {
     show(hiddenWinStack[i]);
     focus(hiddenWinStack[i]);
     restack(selmon);
