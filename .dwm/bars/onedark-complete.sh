@@ -164,6 +164,6 @@ while true; do
   interval=$((interval + 1))
 
   # sleep 1 && xsetroot -name "$(update_icon) $updates $(batt) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-  sleep 1 && xsetroot -name "                     $(music) $(update_icon) $updates  $disk_u  $(cpu)  $(mem) $(clock) $(wlan) "
+  sleep 1 && xsetroot -name "$(music) $(update_icon) $updates  $disk_u  $(cpu)  $(mem) $(clock) $(wlan) "
 
 done
