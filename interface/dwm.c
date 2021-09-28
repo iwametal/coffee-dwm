@@ -246,7 +246,7 @@ static void cyclelayout(const Arg *arg);
 static void destroynotify(XEvent *e);
 static void detach(Client *c);
 static void detachstack(Client *c);
-static Monitor *dirtomon(int dir);
+/* static Monitor *dirtomon(int dir); */
 /* static void dragmfact(const Arg *arg); */
 /* static void dragcfact(const Arg *arg); */
 static void drawbar(Monitor *m);
@@ -258,7 +258,7 @@ static void enternotify(XEvent *e);
 static void expose(XEvent *e);
 static void focus(Client *c);
 static void focusin(XEvent *e);
-static void focusmon(const Arg *arg);
+/* static void focusmon(const Arg *arg); */
 static void focusstack(const Arg *arg);
 static void focuswin(const Arg *arg);
 static Atom getatomprop(Client *c, Atom prop);
@@ -325,19 +325,19 @@ static void switchtag(void);
 static Monitor *systraytomon(Monitor *m);
 /* static void tabmode(const Arg *arg); */
 static void tag(const Arg *arg);
-static void tagmon(const Arg *arg);
+/* static void tagmon(const Arg *arg); */
 static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
 static void togglescratch(const Arg *arg);
 static void togglefullscr(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
-static void hidewin(const Arg *arg);
-static void restorewin(const Arg *arg);
-static void hideotherwins(const Arg *arg);
-static void restoreotherwins(const Arg *arg);
+/* static void hidewin(const Arg *arg); */
+/* static void restorewin(const Arg *arg); */
+/* static void hideotherwins(const Arg *arg); */
+/* static void restoreotherwins(const Arg *arg); */
 static void togglewin(const Arg *arg);
-static int issinglewin(const Arg *arg);
+/* static int issinglewin(const Arg *arg); */
 static void focuswin(const Arg *arg);
 static void unfocus(Client *c, int setfocus);
 static void unmanage(Client *c, int destroyed);
@@ -1067,22 +1067,22 @@ detachstack(Client *c)
 }
 
 
-Monitor
-*dirtomon(int dir)
-{
-  Monitor *m = NULL;
+/* Monitor */
+/* *dirtomon(int dir) */
+/* { */
+/*   Monitor *m = NULL; */
 
-  if (dir > 0) {
-    if (!(m = selmon->next))
-      m = mons;
-  } else if (selmon == mons)
-    for (m = mons; m->next; m = m->next)
-      ;
-  else
-    for (m = mons; m->next != selmon; m = m->next)
-      ;
-  return m;
-}
+/*   if (dir > 0) { */
+/*     if (!(m = selmon->next)) */
+/*       m = mons; */
+/*   } else if (selmon == mons) */
+/*     for (m = mons; m->next; m = m->next) */
+/*       ; */
+/*   else */
+/*     for (m = mons; m->next != selmon; m = m->next) */
+/*       ; */
+/*   return m; */
+/* } */
 
 
 int
@@ -1519,11 +1519,12 @@ drawbar(Monitor *m)
   XFillRectangle(drw->dpy, drw->drawable, drw->gc, 0, 0, m->ww - m->gappov * 2, bh);
 
   if (showsystray && m == systraytomon(m))
+    stw = getsystraywidth();
 
-    /* draw status first so it can be overdrawn by tags later */
-    if (m == selmon) { /* status is only drawn on selected monitor */
-      sw = mw - drawstatusbar(m, bh_n, stext);
-    }
+  /* draw status first so it can be overdrawn by tags later */
+  if (m == selmon) { /* status is only drawn on selected monitor */
+    sw = mw - drawstatusbar(m, bh_n, stext);
+  }
 
   resizebarwin(m);
   for (c = m->clients; c; c = c->next) {
@@ -1786,19 +1787,19 @@ focusin(XEvent *e)
 }
 
 
-void
-focusmon(const Arg *arg)
-{
-  Monitor *m;
+/* void */
+/* focusmon(const Arg *arg) */
+/* { */
+/*   Monitor *m; */
 
-  if (!mons->next)
-    return;
-  if ((m = dirtomon(arg->i)) == selmon)
-    return;
-  unfocus(selmon->sel, 0);
-  selmon = m;
-  focus(NULL);
-}
+/*   if (!mons->next) */
+/*     return; */
+/*   if ((m = dirtomon(arg->i)) == selmon) */
+/*     return; */
+/*   unfocus(selmon->sel, 0); */
+/*   selmon = m; */
+/*   focus(NULL); */
+/* } */
 
 
 void
@@ -3353,13 +3354,13 @@ tag(const Arg *arg)
 }
 
 
-void
-tagmon(const Arg *arg)
-{
-  if (!selmon->sel || !mons->next)
-    return;
-  sendmon(selmon->sel, dirtomon(arg->i));
-}
+/* void */
+/* tagmon(const Arg *arg) */
+/* { */
+/*   if (!selmon->sel || !mons->next) */
+/*     return; */
+/*   sendmon(selmon->sel, dirtomon(arg->i)); */
+/* } */
 
 
 void
@@ -3492,71 +3493,71 @@ toggleview(const Arg *arg)
 }
 
 
-void
-hidewin(const Arg *arg)
-{
-  if (!selmon->sel)
-    return;
-  Client *c = (Client*)selmon->sel;
-  hide(c);
-  hiddenWinStack[++hiddenWinStackTop] = c;
-}
+/* void */
+/* hidewin(const Arg *arg) */
+/* { */
+/*   if (!selmon->sel) */
+/*     return; */
+/*   Client *c = (Client*)selmon->sel; */
+/*   hide(c); */
+/*   hiddenWinStack[++hiddenWinStackTop] = c; */
+/* } */
 
 
-void
-restorewin(const Arg *arg)
-{
-  int i = hiddenWinStackTop;
-  while (i > -1) {
-    if (HIDDEN(hiddenWinStack[i])
-        && hiddenWinStack[i]->tags == selmon->tagset[selmon->seltags])
-    {
-      show(hiddenWinStack[i]);
-      focus(hiddenWinStack[i]);
-      restack(selmon);
-      for (int j = i; j < hiddenWinStackTop; ++j) {
-        hiddenWinStack[j] = hiddenWinStack[j + 1];
-      }
-      --hiddenWinStackTop;
-      return;
-    }
-    --i;
-  }
-}
+/* void */
+/* restorewin(const Arg *arg) */
+/* { */
+/*   int i = hiddenWinStackTop; */
+/*   while (i > -1) { */
+/*     if (HIDDEN(hiddenWinStack[i]) */
+/*         && hiddenWinStack[i]->tags == selmon->tagset[selmon->seltags]) */
+/*     { */
+/*       show(hiddenWinStack[i]); */
+/*       focus(hiddenWinStack[i]); */
+/*       restack(selmon); */
+/*       for (int j = i; j < hiddenWinStackTop; ++j) { */
+/*         hiddenWinStack[j] = hiddenWinStack[j + 1]; */
+/*       } */
+/*       --hiddenWinStackTop; */
+/*       return; */
+/*     } */
+/*     --i; */
+/*   } */
+/* } */
 
 
-void
-hideotherwins(const Arg *arg)
-{
-  Client *c = NULL, *i;
-  if (!selmon->sel)
-    return;
-  c = (Client *)selmon->sel;
-  for (i = selmon->clients; i; i = i->next) {
-    if (i != c && ISVISIBLE(i)) {
-      hide(i);
-      hiddenWinStack[++hiddenWinStackTop] = i;
-    }
-  }
-}
+/* void */
+/* hideotherwins(const Arg *arg) */
+/* { */
+/*   Client *c = NULL, *i; */
+/*   if (!selmon->sel) */
+/*     return; */
+/*   c = (Client *)selmon->sel; */
+/*   for (i = selmon->clients; i; i = i->next) { */
+/*     if (i != c && ISVISIBLE(i)) { */
+/*       hide(i); */
+/*       hiddenWinStack[++hiddenWinStackTop] = i; */
+/*     } */
+/*   } */
+/* } */
 
 
-void
-restoreotherwins(const Arg *arg)
-{
-  int i;
-  for (i = 0; i <= hiddenWinStackTop; ++i) {
-    if (HIDDEN(hiddenWinStack[i])
-        && hiddenWinStack[i]->tags == selmon->tagset[selmon->seltags]) {
-      show(hiddenWinStack[i]);
-      restack(selmon);
-      memcpy(hiddenWinStack + i, hiddenWinStack + i + 1,
-          (hiddenWinStackTop - i) * sizeof(Client *));
-      --hiddenWinStackTop;
-      --i;
-    }
-  }
-}
+/* void */
+/* restoreotherwins(const Arg *arg) */
+/* { */
+/*   int i; */
+/*   for (i = 0; i <= hiddenWinStackTop; ++i) { */
+/*     if (HIDDEN(hiddenWinStack[i]) */
+/*         && hiddenWinStack[i]->tags == selmon->tagset[selmon->seltags]) { */
+/*       show(hiddenWinStack[i]); */
+/*       restack(selmon); */
+/*       memcpy(hiddenWinStack + i, hiddenWinStack + i + 1, */
+/*           (hiddenWinStackTop - i) * sizeof(Client *)); */
+/*       --hiddenWinStackTop; */
+/*       --i; */
+/*     } */
+/*   } */
+/* } */
 
 
 void
@@ -3584,22 +3585,22 @@ togglewin(const Arg *arg)
 }
 
 
-int
-issinglewin(const Arg *arg)
-{
-  Client *c = NULL;
-  int cot = 0;
-  int tag = selmon->tagset[selmon->seltags];
-  for (c = selmon->clients; c; c = c->next) {
-    if (ISVISIBLE(c) && !HIDDEN(c) && c->tags == tag) {
-      cot++;
-    }
-    if (cot > 1) {
-      return 0;
-    }
-  }
-  return 1;
-}
+/* int */
+/* issinglewin(const Arg *arg) */
+/* { */
+/*   Client *c = NULL; */
+/*   int cot = 0; */
+/*   int tag = selmon->tagset[selmon->seltags]; */
+/*   for (c = selmon->clients; c; c = c->next) { */
+/*     if (ISVISIBLE(c) && !HIDDEN(c) && c->tags == tag) { */
+/*       cot++; */
+/*     } */
+/*     if (cot > 1) { */
+/*       return 0; */
+/*     } */
+/*   } */
+/*   return 1; */
+/* } */
 
 
 void
