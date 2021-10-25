@@ -338,6 +338,7 @@ static Key keys[] = {
   { MODKEY|ControlMask, XK_s, spawn, SHCMD("slack") },
 
   // notification
+  { ControlMask,                    XK_space, spawn, SHCMD("dunstctl close") },
   { ControlMask|ShiftMask,          XK_space, spawn, SHCMD("dunstctl close-all") },
   { ControlMask|ShiftMask|Mod1Mask, XK_space, spawn, SHCMD("dunstctl set-paused toggle") },
 
