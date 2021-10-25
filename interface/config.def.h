@@ -195,20 +195,20 @@ static Key keys[] = {
   { MODKEY,                      XK_Return, zoom,       {0} },
 
   // view
-  STACKKEYS(MODKEY,                          focus)
-	STACKKEYS(MODKEY|ShiftMask,                push)
-  { MODKEY,             XK_Tab,       view,       {0} },
-  { MODKEY,             XK_backslash, view,       {0} },
-  { Mod1Mask,		        XK_Tab,	      shiftview,  {.i = 1} },
-  { Mod1Mask|ShiftMask, XK_Tab,       shiftview,  {.i = -1} },
-  { MODKEY,			        XK_g,		      shiftview,  {.i = -1} },
-  { MODKEY|ShiftMask,		XK_g,		      shifttag,	  {.i = -1} },
-  { MODKEY,			        XK_semicolon, shiftview,  {.i = 1} },
-  { MODKEY|ShiftMask,		XK_semicolon, shifttag,	  {.i = 1} },
-  { MODKEY,             XK_e,         togglewin,  {0} },
-  /* { MODKEY,             XK_e,         hidewin,    {0} }, */
-  /* { MODKEY|ShiftMask,   XK_e,         restorewin, {0} }, */
-  { MODKEY,             XK_space,     zoom,       {0} },
+  STACKKEYS(MODKEY,           focus)
+	STACKKEYS(MODKEY|ShiftMask, push)
+  { MODKEY,                       XK_Tab,       view,       {0} },
+  { MODKEY,                       XK_backslash, view,       {0} },
+  { Mod1Mask,		                  XK_Tab,	      shiftview,  {.i = 1} },
+  { Mod1Mask|ShiftMask,           XK_Tab,       shiftview,  {.i = -1} },
+  { MODKEY,			                  XK_g,		      shiftview,  {.i = -1} },
+  { MODKEY|ShiftMask,		          XK_g,		      shifttag,	  {.i = -1} },
+  { MODKEY,			                  XK_semicolon, shiftview,  {.i = 1} },
+  { MODKEY|ShiftMask,		          XK_semicolon, shifttag,	  {.i = 1} },
+  { MODKEY,                       XK_e,         togglewin,  {0} },
+  { MODKEY|ShiftMask,             XK_e,         hidewin,    {0} },
+  { MODKEY|ShiftMask|ControlMask, XK_e,         restorewin, {0} },
+  { MODKEY,                       XK_space,     zoom,       {0} },
 
   // browser
   { MODKEY,			        XK_w,	spawn, SHCMD("$BROWSER") },
@@ -338,6 +338,7 @@ static Key keys[] = {
   { MODKEY|ControlMask, XK_s, spawn, SHCMD("slack") },
 
   // notification
+  { ControlMask,                    XK_space, spawn, SHCMD("dunstctl close") },
   { ControlMask|ShiftMask,          XK_space, spawn, SHCMD("dunstctl close-all") },
   { ControlMask|ShiftMask|Mod1Mask, XK_space, spawn, SHCMD("dunstctl set-paused toggle") },
 

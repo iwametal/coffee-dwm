@@ -332,8 +332,8 @@ static void togglescratch(const Arg *arg);
 static void togglefullscr(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
-/* static void hidewin(const Arg *arg); */
-/* static void restorewin(const Arg *arg); */
+static void hidewin(const Arg *arg);
+static void restorewin(const Arg *arg);
 /* static void hideotherwins(const Arg *arg); */
 /* static void restoreotherwins(const Arg *arg); */
 static void togglewin(const Arg *arg);
@@ -3493,37 +3493,37 @@ toggleview(const Arg *arg)
 }
 
 
-/* void */
-/* hidewin(const Arg *arg) */
-/* { */
-/*   if (!selmon->sel) */
-/*     return; */
-/*   Client *c = (Client*)selmon->sel; */
-/*   hide(c); */
-/*   hiddenWinStack[++hiddenWinStackTop] = c; */
-/* } */
+void
+hidewin(const Arg *arg)
+{
+  if (!selmon->sel)
+    return;
+  Client *c = (Client*)selmon->sel;
+  hide(c);
+  hiddenWinStack[++hiddenWinStackTop] = c;
+}
 
 
-/* void */
-/* restorewin(const Arg *arg) */
-/* { */
-/*   int i = hiddenWinStackTop; */
-/*   while (i > -1) { */
-/*     if (HIDDEN(hiddenWinStack[i]) */
-/*         && hiddenWinStack[i]->tags == selmon->tagset[selmon->seltags]) */
-/*     { */
-/*       show(hiddenWinStack[i]); */
-/*       focus(hiddenWinStack[i]); */
-/*       restack(selmon); */
-/*       for (int j = i; j < hiddenWinStackTop; ++j) { */
-/*         hiddenWinStack[j] = hiddenWinStack[j + 1]; */
-/*       } */
-/*       --hiddenWinStackTop; */
-/*       return; */
-/*     } */
-/*     --i; */
-/*   } */
-/* } */
+void
+restorewin(const Arg *arg)
+{
+  int i = hiddenWinStackTop;
+  while (i > -1) {
+    /* if (HIDDEN(hiddenWinStack[i]) */
+    /*     && hiddenWinStack[i]->tags == selmon->tagset[selmon->seltags]) */
+    if (HIDDEN(hiddenWinStack[i])) {
+      show(hiddenWinStack[i]);
+      focus(hiddenWinStack[i]);
+      restack(selmon);
+      for (int j = i; j < hiddenWinStackTop; ++j) {
+        hiddenWinStack[j] = hiddenWinStack[j + 1];
+      }
+      --hiddenWinStackTop;
+      return;
+    }
+    --i;
+  }
+}
 
 
 /* void */
