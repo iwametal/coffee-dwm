@@ -330,8 +330,8 @@ static Key keys[] = {
   TAGKEYS(           XK_7, 6)
   TAGKEYS(           XK_8, 7)
   TAGKEYS(           XK_9, 8)
-  { MODKEY|Mod1Mask, XK_q, spawn, SHCMD("/home/coffee/.dwm/bars/kill_statusbar.sh onedark") },
-  { MODKEY|Mod1Mask, XK_q, quit,  {0} },
+  { MODKEY|ShiftMask|Mod1Mask, XK_q, spawn, SHCMD("/home/coffee/.dwm/bars/kill_statusbar.sh onedark") },
+  { MODKEY|ShiftMask|Mod1Mask, XK_q, quit,  {0} },
 
 // programs
   { MODKEY|ControlMask, XK_d, spawn, SHCMD("discord") },
