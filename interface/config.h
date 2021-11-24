@@ -212,7 +212,8 @@ static Key keys[] = {
 
   // browser
   { MODKEY,			        XK_w,	spawn, SHCMD("$BROWSER") },
-  { MODKEY|ControlMask, XK_w,	spawn, SHCMD("brave") },
+  /* { MODKEY|ControlMask, XK_w,	spawn, SHCMD("brave") }, */
+  { MODKEY|ControlMask, XK_w,	spawn, SHCMD("firefox") },
 
   // internet
   { MODKEY|ShiftMask, XK_w, spawn, SHCMD(TERMINAL " -e sudo nmtui") },
@@ -330,7 +331,7 @@ static Key keys[] = {
   TAGKEYS(           XK_7, 6)
   TAGKEYS(           XK_8, 7)
   TAGKEYS(           XK_9, 8)
-  { MODKEY|ShiftMask|Mod1Mask, XK_q, spawn, SHCMD("/home/coffee/.dwm/bars/kill_statusbar.sh onedark") },
+  { MODKEY|ShiftMask|Mod1Mask, XK_q, spawn, SHCMD("$HOME/.dwm/bars/kill_statusbar.sh onedark") },
   { MODKEY|ShiftMask|Mod1Mask, XK_q, quit,  {0} },
 
 // programs

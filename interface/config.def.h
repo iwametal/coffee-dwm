@@ -212,7 +212,8 @@ static Key keys[] = {
 
   // browser
   { MODKEY,			        XK_w,	spawn, SHCMD("$BROWSER") },
-  { MODKEY|ControlMask, XK_w,	spawn, SHCMD("brave") },
+  /* { MODKEY|ControlMask, XK_w,	spawn, SHCMD("brave") }, */
+  { MODKEY|ControlMask, XK_w,	spawn, SHCMD("firefox") },
 
   // internet
   { MODKEY|ShiftMask, XK_w, spawn, SHCMD(TERMINAL " -e sudo nmtui") },
