@@ -32,6 +32,7 @@ static const int horizpadtabo       = 15;
 static const int scalepreview       = 4;
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:size=11",
   "Material Design Icons-Regular:size=11",
+  "noto-cjk:style:medium:size=11",
 };
 static const char dmenufont[]       = "monospace:size=11";
 static const int colorfultag        = 1;  /* 0 means use SchemeSel for selected non vacant tag */
@@ -108,10 +109,11 @@ static const Rule rules[] = {
   { "slack",          NULL,        "Slack",    	    1 << 3,       0,           0,         0,         -1 },
   { "lutris",         NULL,        "Lutris",   	    1 << 2,       0,           0,         0,         -1 },
   { "steam",          NULL,        "Steam",    	    1 << 2,       0,           0,         0,         -1 },
-  { "qutebrowser",    NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
   { "brave",          NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
   { "chromium",       NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
   { "firefox",        NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
+  { "opera",    NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
+  { "qutebrowser",    NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
   { TERMCLASS,        NULL,        NULL,       	    0,            0,           0,         1,         -1 },
   { NULL,             NULL,        "Event Tester",  0,            0,           1,         0,         -1 },
   { "eww",            NULL,        NULL,            0,            0,           1,         0,         -1 },
@@ -213,7 +215,7 @@ static Key keys[] = {
   // browser
   { MODKEY,			        XK_w,	spawn, SHCMD("$BROWSER") },
   /* { MODKEY|ControlMask, XK_w,	spawn, SHCMD("brave") }, */
-  { MODKEY|ControlMask, XK_w,	spawn, SHCMD("firefox") },
+  { MODKEY|ControlMask, XK_w,	spawn, SHCMD("opera") },
 
   // internet
   { MODKEY|ShiftMask, XK_w, spawn, SHCMD(TERMINAL " -e sudo nmtui") },
