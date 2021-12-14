@@ -43,7 +43,7 @@ static const int colorfultag        = 1;  /* 0 means use SchemeSel for selected 
 static const char *colors[][3]      = {
   /*               fg         bg         border   */
   [SchemeNorm]       = { gray3, black, gray2 },
-  [SchemeSel]        = { gray4, blue,  pink  },
+  [SchemeSel]        = { gray4, blue,  purple9  },
   [TabSel]           = { blue, gray2,  black  },
   [TabNorm]          = { gray3, black, black },
   [SchemeTag]        = { gray3, black, black },
@@ -112,8 +112,9 @@ static const Rule rules[] = {
   { "brave",          NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
   { "chromium",       NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
   { "firefox",        NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
-  { "opera",    NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
+  { "opera",          NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
   { "qutebrowser",    NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
+  { "vivaldi",        NULL,        NULL,       	    1 << 1,       0,           0,         0,         -1 },
   { TERMCLASS,        NULL,        NULL,       	    0,            0,           0,         1,         -1 },
   { NULL,             NULL,        "Event Tester",  0,            0,           1,         0,         -1 },
   { "eww",            NULL,        NULL,            0,            0,           1,         0,         -1 },
@@ -215,7 +216,7 @@ static Key keys[] = {
   // browser
   { MODKEY,			        XK_w,	spawn, SHCMD("$BROWSER") },
   /* { MODKEY|ControlMask, XK_w,	spawn, SHCMD("brave") }, */
-  { MODKEY|ControlMask, XK_w,	spawn, SHCMD("opera") },
+  { MODKEY|ControlMask, XK_w,	spawn, SHCMD("vivaldi-stable") },
 
   // internet
   { MODKEY|ShiftMask, XK_w, spawn, SHCMD(TERMINAL " -e sudo nmtui") },
