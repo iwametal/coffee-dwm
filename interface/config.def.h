@@ -30,11 +30,11 @@ static const int vertpadtab         = 33;
 static const int horizpadtabi       = 15;
 static const int horizpadtabo       = 15;
 static const int scalepreview       = 4;
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:size=11",
-  "Material Design Icons-Regular:size=11",
-  "noto-cjk:style:medium:size=11",
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:size=9:antialias:true",
+  "Material Design Icons-Regular:size=9:antialias:true",
+  "noto-cjk:style:medium:size=9:antialias:true",
 };
-static const char dmenufont[]       = "monospace:size=11";
+static const char dmenufont[]       = "monospace:size=9";
 static const int colorfultag        = 1;  /* 0 means use SchemeSel for selected non vacant tag */
 
 // theme
@@ -76,7 +76,7 @@ static Sp scratchpads[] = {
 
 /* tagging */
 /* static const char *tags[] = {" ", " ", " ", " ", " "}; */
-/* static const char *tags[] = { " ", " ", " ", " ", " ", " ", " ", " ", " " }; */
+/* static const char *tags[] = { " ", " ", " ", " ", " ", " ", " ", " ", " " }; */
 static const char *tags[] = { " ", " ", " ", " ", " ", " ", " ", " ", " " };
 
 static const int tagschemes[] = { SchemeTag1, SchemeTag2, SchemeTag3,
@@ -251,20 +251,27 @@ static Key keys[] = {
 
   // volume
   /* { 0,                XF86XK_AudioLowerVolume, spawn, SHCMD("$HOME/.scripts/shell/volume.sh -b -d 1") }, */
-  { MODKEY,			      XK_minus,	               spawn, SHCMD("$HOME/.scripts/shell/volume.sh -b -d 2") },
-  { MODKEY|ShiftMask,	XK_minus,	               spawn, SHCMD("$HOME/.scripts/shell/volume.sh -b -d 5") },
+  { MODKEY,           XK_minus, spawn, SHCMD("$HOME/.scripts/shell/volume.sh -b -d 2") },
+  { MODKEY|ShiftMask, XK_minus,	spawn, SHCMD("$HOME/.scripts/shell/volume.sh -b -d 5") },
   /* { 0,                XF86XK_AudioRaiseVolume, spawn, SHCMD("$HOME/.scripts/shell/volume.sh -b -i 1") }, */
-  { MODKEY,			      XK_equal,	               spawn, SHCMD("$HOME/.scripts/shell/volume.sh -b -i 2") },
-  { MODKEY|ShiftMask,	XK_equal,	               spawn, SHCMD("$HOME/.scripts/shell/volume.sh -b -i 5") },
-  { MODKEY|ShiftMask, XK_m,		                 spawn, SHCMD("$HOME/.scripts/shell/volume.sh -m") },
-  { MODKEY,           XK_v,		                 spawn, SHCMD("$HOME/.scripts/shell/volume.sh -s") },
+  { MODKEY,           XK_equal, spawn, SHCMD("$HOME/.scripts/shell/volume.sh -b -i 2") },
+  { MODKEY|ShiftMask, XK_equal, spawn, SHCMD("$HOME/.scripts/shell/volume.sh -b -i 5") },
+  { MODKEY|ShiftMask, XK_m,	spawn, SHCMD("$HOME/.scripts/shell/volume.sh -m") },
+  { MODKEY,           XK_v,	spawn, SHCMD("$HOME/.scripts/shell/volume.sh -s") },
+
+  // brightness
+  { MODKEY|Mod1Mask,           XK_minus, spawn, SHCMD("$HOME/.scripts/dwm/backlight/brightness.sh -") },
+  { MODKEY|Mod1Mask|ShiftMask, XK_minus, spawn, SHCMD("$HOME/.scripts/dwm/backlight/brightness.sh --") },
+  { MODKEY|Mod1Mask,           XK_equal, spawn, SHCMD("$HOME/.scripts/dwm/backlight/brightness.sh +") },
+  { MODKEY|Mod1Mask|ShiftMask, XK_equal, spawn, SHCMD("$HOME/.scripts/dwm/backlight/brightness.sh ++") },
+  { MODKEY|Mod1Mask,           XK_b,     spawn, SHCMD("$HOME/.scripts/dwm/backlight/brightness.sh g") },
 
   // music
   { MODKEY|ControlMask, XK_p,            spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") },
   { MODKEY|ControlMask, XK_comma,        spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") },
   { MODKEY|ControlMask, XK_period,       spawn,	SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") },
   { MODKEY|ControlMask, XK_m,            spawn,	SHCMD("spotify") },
-  { MODKEY,          	  XK_p,			       spawn,	SHCMD("mpc toggle") },
+  { MODKEY,          	  XK_p,			         spawn,	SHCMD("mpc toggle") },
   { MODKEY,			        XK_bracketleft,  spawn,	SHCMD("mpc seek -10") },
   { MODKEY|ShiftMask,	  XK_bracketleft,  spawn,	SHCMD("mpc seek -60") },
   { MODKEY,			        XK_bracketright, spawn,	SHCMD("mpc seek +10") },
