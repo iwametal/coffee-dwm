@@ -1,6 +1,7 @@
 #!/bin/bash
 
 interval=0
+batt_msg=0
 
 pause_cache_timeout()
 {
@@ -18,7 +19,6 @@ music()
   if [ ! -z "$title" ] ; then
     name=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:org.mpris.MediaPlayer2.Player string:Metadata 2>/dev/null | sed -n '/title/{n;p}' | cut -d '"' -f 2)
 
-
     status=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'PlaybackStatus'|egrep -A 1 "string"|cut -b 26-|cut -d '"' -f 1|egrep -v ^$)
 
     if [ "$status" = "Playing" ] ; then
@@ -30,7 +30,7 @@ music()
     # music_="$title  $name"
 
     # printf "^c#b084f5^ $symbol_ ^c#81A1C1^『$title ^c#abb2bf^ ^c#81A1C1^$name』"
-    printf "^c#b084f5^ $symbol_ ^c#545862^『^c#4a6a8a^$title ^c#abb2bf^ ^c#4a6a8a^$name^c#545862^』"
+    printf "^c#b084f5^ $symbol_ ^c#545862^『^c#4a6a8a^$title ^c#abb2bf^ ^c#4a6a8a^$name^c#545862^』^b#161a22^"
 
   else
     m_symbol_=$(mpc 2>/dev/null | head -n2 | tail -n1| cut -f 1 | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*//g;s/\\[playing\\].*/🎧/g;/^ERROR/Q" | paste -sd ' ' -;)
@@ -49,8 +49,7 @@ music()
 
       # printf "^c#b084f5^^b#11141e^ $music_  $m_symbol_ ^b#1e222a^"
       # printf "^c#81A1C1^$music_ ^c#b084f5^$m_symbol_  ^b#11141e^"
-      # printf "^c#b084f5^$m_symbol_ ^c#81A1C1^$music_"
-      printf "^c#b084f5^$m_symbol_ ^c#4a6a8a^$music_"
+      printf "^c#b084f5^$m_symbol_ ^c#4a6a8a^$music_^b#161a22^"
     else
       music_=
     fi
@@ -64,11 +63,19 @@ cpu() {
   # # printf "^c#3b414d^ ^b#7ec7a2^ CPU"
   # printf "^c#3b414d^ ^b#668ee3^ CPU"
   # printf "^c#abb2bf^ ^b#353b45^ $cpu_val"
-  printf "^c#81A1C1^  $cpu_val"
+  printf "^c#bf616a^^b#10121b^  ^c#7797b7^$cpu_val"
+}
+
+disk_usage() {
+	disk_root=$(df -h|awk '{if ($6 == "/") {print}}'|awk '{print "/" $5}'|sed 's/\%//')
+	disk_home=$(df -h|awk '{if ($6 == "/home") {print}}'|awk '{print "~" $5}'|sed 's/\%//')
+
+  printf "^c#ebcb8b^^b#121521^  ^c#7797b7^$disk_root%% ^b#11131b^- $disk_home%%"
 }
 
 update_icon() {
-  printf "^c#7ec7a2^^b#171b24^ ^b#151a21^"
+  printf "^c#7ec7a2^ "
+  # printf "^c#7ec7a2^ ^b#132121^"
   # printf "^c#81A1C1^ "
 }
 
@@ -77,11 +84,7 @@ pkg_updates() {
   updates=$(checkupdates | wc -l)   # arch , needs pacman contrib
   # updates=$(aptitude search '~U' | wc -l)  # apt (ubuntu,debian etc)
 
-  if [ -z "$updates" ]; then
-    printf "^c#7797b7^ fully updated"
-  else
-    printf "^c#7797b7^$updates""^b#141721^u"
-  fi
+  printf "^c#7797b7^$updates""u"
   # if [ -z "$updates" ]; then
   #   printf "^c#7ec7a2^ Fully Updated"
   # else
@@ -92,7 +95,28 @@ pkg_updates() {
 # battery
 batt() {
   printf "^c#81A1C1^  "
-  printf "^c#81A1C1^ $(acpi | sed "s/,//g" | awk '{if ($3 == "Discharging"){print $4; exit} else {print $4""}}' | tr -d "\n")"
+  printf "^c#81A1C1^$1%%"
+}
+
+check_batt() {
+  batt_lvl=$(acpi | sed "s/,//g" | awk '{if ($3 == "Discharging"){print $4; exit} else {print $4""}}' | tr -d "\n" | sed "s/\%//")
+  is_charging=$(acpi | sed "s/,//g" | awk '{print $3}')
+
+  if [ X"$is_charging" = X"Discharging" ] ; then
+	  if [ "$batt_lvl" -lt 10 2>/dev/null ] ; then
+		  [ "$batt_msg" -eq 0 2>/dev/null ] && notify-send "battery" "FUCK! PUT THE CHARGER, HURRY THE SHIT UP: $batt_lvl%" && batt_msg=1
+	  elif [ "$batt_lvl" -lt 15 2>/dev/null ] ; then
+		  [ "$batt_msg" -eq 0 2>/dev/null ] && notify-send "battery" "battery is VERY low bro, c'mon: $batt_lvl%" && batt_msg=1
+	  elif [ "$batt_lvl" -lt 20 2>/dev/null ] ; then
+		  [ "$batt_msg" -eq 0 2>/dev/null ] && notify-send "battery" "hey dude, battery low: $batt_lvl%" && batt_msg=1
+	  else
+		  batt_msg=0
+	  fi
+  else
+	  batt_msg=0
+  fi
+
+  batt_param=$batt_lvl
 }
 
 brightness() {
@@ -102,15 +126,15 @@ brightness() {
     echo -e "$backlight"
   }
 
-  printf "^c#bf616a^   "
-  printf "^c#bf616a^%.0f\n" $(backlight)
+  printf "^c#BF616A^   "
+  printf "^c#BF616A^%.0f\n" $(backlight)
 }
 
 mem() {
   # printf "^c#7797b7^^b#0f131b^ "
   # printf "^c#ebcb8b^^b#2E3440^ "
-  printf "^c#69ccff^^b#131621^ "
-  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) ^c#545862^^b#121419^| ^c#7797b7^$(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g)"
+  printf "^c#69ccff^^b#10121a^ "
+  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) ^c#545862^^b#0d1113^| ^c#7797b7^$(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g) ^c#545869^^b#0c0e13^- $(free -h | awk '/^Swap/ { print $3 }' | sed s/i//g)"
 }
 
 wlan() {
@@ -120,7 +144,8 @@ wlan() {
   if [ X"$net_icon" = X"" ]; then
     printf "^c#bd93f9^^b#0f1113^ $net_icon"
   else
-    printf "^c#9266d7^^b#0f1113^ $net_icon"
+    # printf "^c#9266d7^^b#0f1113^ $net_icon"
+    printf "^c#9266d7^^b#071309^ $net_icon"
     # printf "^c#7797b7^^b#11141e^ $net_icon"
   fi
 
@@ -144,7 +169,8 @@ clock() {
   
   # purple scheme
   printf "^c#121419^^b#9a62dd^ 󱑆 "
-  printf "^c#121419^^b#9266d7^$(date '+%a, %I:%M %p') "
+  # printf "^c#121419^^b#9266d7^$(date '+╷%m.%d.%y╷ %H:%M')"
+  printf "^c#121419^^b#9266d7^$(date '+%H:%M ╷ %m.%d.%y')"
 
   # blue scheme
   # printf "^c#2E3440^^b#828dd1^ 󱑆 "
@@ -155,8 +181,9 @@ while true; do
 
   [ $interval == 0 ] || [ $(($interval % 3600)) == 0 ] && updates=$(pkg_updates) && interval=0
   interval=$((interval + 1))
+  check_batt
 
   # sleep 1 && xsetroot -name "$(update_icon) $updates $(batt) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-  sleep 1 && xsetroot -name "$(music) $(update_icon) $updates  $(mem) $(clock) $(wlan) "
+  sleep 1 && xsetroot -name "$(music) $(update_icon) $updates  $(mem) $(batt $batt_param) $(clock) $(wlan) "
 
 done

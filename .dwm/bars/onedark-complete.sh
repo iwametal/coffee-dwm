@@ -1,6 +1,7 @@
 #!/bin/bash
 
 interval=0
+batt_msg=0
 
 pause_cache_timeout()
 {
@@ -69,11 +70,12 @@ disk_usage() {
 	disk_root=$(df -h|awk '{if ($6 == "/") {print}}'|awk '{print "/" $5}'|sed 's/\%//')
 	disk_home=$(df -h|awk '{if ($6 == "/home") {print}}'|awk '{print "~" $5}'|sed 's/\%//')
 
-  printf "^c#ebcb8b^^b#121521^ 💾 ^c#7797b7^$disk_root%% ^b#11131b^- $disk_home%%"
+  printf "^c#ebcb8b^^b#121521^  ^c#7797b7^$disk_root%% ^b#11131b^- $disk_home%%"
 }
 
 update_icon() {
-  printf "^c#7ec7a2^ ^b#132121^"
+  printf "^c#7ec7a2^ "
+  # printf "^c#7ec7a2^ ^b#132121^"
   # printf "^c#81A1C1^ "
 }
 
@@ -82,11 +84,7 @@ pkg_updates() {
   updates=$(checkupdates | wc -l)   # arch , needs pacman contrib
   # updates=$(aptitude search '~U' | wc -l)  # apt (ubuntu,debian etc)
 
-  if [ -z "$updates" ]; then
-    printf "^c#7797b7^ fully updated"
-  else
-    printf "^c#7797b7^$updates""^b#121921^u"
-  fi
+  printf "^c#7797b7^$updates""u"
   # if [ -z "$updates" ]; then
   #   printf "^c#7ec7a2^ Fully Updated"
   # else
@@ -97,7 +95,28 @@ pkg_updates() {
 # battery
 batt() {
   printf "^c#81A1C1^  "
-  printf "^c#81A1C1^ $(acpi | sed "s/,//g" | awk '{if ($3 == "Discharging"){print $4; exit} else {print $4""}}' | tr -d "\n")"
+  printf "^c#81A1C1^$1%%"
+}
+
+check_batt() {
+  batt_lvl=$(acpi | sed "s/,//g" | awk '{if ($3 == "Discharging"){print $4; exit} else {print $4""}}' | tr -d "\n" | sed "s/\%//")
+  is_charging=$(acpi | sed "s/,//g" | awk '{print $3}')
+
+  if [ X"$is_charging" = X"Discharging" ] ; then
+	  if [ "$batt_lvl" -lt 10 2>/dev/null ] ; then
+		  [ "$batt_msg" -eq 0 2>/dev/null ] && notify-send "battery" "FUCK! PUT THE CHARGER, HURRY THE SHIT UP: $batt_lvl%" && batt_msg=1
+	  elif [ "$batt_lvl" -lt 15 2>/dev/null ] ; then
+		  [ "$batt_msg" -eq 0 2>/dev/null ] && notify-send "battery" "battery is VERY low bro, c'mon: $batt_lvl%" && batt_msg=1
+	  elif [ "$batt_lvl" -lt 20 2>/dev/null ] ; then
+		  [ "$batt_msg" -eq 0 2>/dev/null ] && notify-send "battery" "hey dude, battery low: $batt_lvl%" && batt_msg=1
+	  else
+		  batt_msg=0
+	  fi
+  else
+	  batt_msg=0
+  fi
+
+  batt_param=$batt_lvl
 }
 
 brightness() {
@@ -162,8 +181,9 @@ while true; do
 
   [ $interval == 0 ] || [ $(($interval % 3600)) == 0 ] && updates=$(pkg_updates) && disk_u=$(disk_usage) && interval=0
   interval=$((interval + 1))
+  check_batt
 
   # sleep 1 && xsetroot -name "$(update_icon) $updates $(batt) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-  sleep 1 && xsetroot -name "$(music) $(update_icon) $updates  $disk_u  $(cpu)  $(mem) $(clock) $(wlan) "
+  sleep 1 && xsetroot -name " $(music) $(update_icon) $updates  $disk_u  $(cpu)  $(mem) $(batt $batt_param) $(clock) $(wlan) "
 
 done
