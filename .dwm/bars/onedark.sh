@@ -139,8 +139,8 @@ brightness() {
 mem() {
   # printf "^c#7797b7^^b#0f131b^ "
   # printf "^c#ebcb8b^^b#2E3440^ "
-  printf "^c#69ccff^^b#10121a^ "
-  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) ^c#545862^^b#0d1113^| ^c#7797b7^$(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g) ^c#545869^^b#0c0e13^- $(free -h | awk '/^Swap/ { print $3 }' | sed s/i//g)"
+  printf "^c#7797b7^^b#10121a^  "
+  printf "$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g) ^c#545862^^b#0d1113^| ^c#7797b7^$(free -h | awk '/^Mem/ { print $6 }' | sed s/i//g) ^c#545869^^b#0c0e13^- $(free -h | awk '/^Swap/ { print $3 }' | sed s/i//g)"
 }
 
 wlan() {
@@ -176,7 +176,7 @@ clock() {
   # purple scheme
   printf "^c#121419^^b#9a62dd^ 󱑆 "
   # printf "^c#121419^^b#9266d7^$(date '+╷%m.%d.%y╷ %H:%M')"
-  printf "^c#121419^^b#9266d7^$(date '+%H:%M ╷ %m.%d.%y')"
+  printf "^c#121419^^b#9266d7^$(date '+%a ╷ %I:%M %p')"
 
   # blue scheme
   # printf "^c#2E3440^^b#828dd1^ 󱑆 "
