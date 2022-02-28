@@ -94,7 +94,13 @@ pkg_updates() {
 
 # battery
 batt() {
-  printf "^c#81A1C1^  "
+  is_charging=$(acpi | sed "s/,//g" | awk '{print $3}')
+  if [ X"$is_charging" = X"Discharging" ] ; then
+	  icon=" "
+  else
+	  icon=
+  fi
+  printf "^c#81A1C1^ $icon "
   printf "^c#81A1C1^$1%%"
 }
 
@@ -104,11 +110,11 @@ check_batt() {
 
   if [ X"$is_charging" = X"Discharging" ] ; then
 	  if [ "$batt_lvl" -lt 10 2>/dev/null ] ; then
-		  [ "$batt_msg" -eq 0 2>/dev/null ] && notify-send "battery" "FUCK! PUT THE CHARGER, HURRY THE SHIT UP: $batt_lvl%" && batt_msg=1
+		  [ "$batt_msg" -ne 1 2>/dev/null ] && notify-send "battery" "FUCK! PUT THE FUCKING CHARGER, DAMN IT: $batt_lvl%" && batt_msg=1
 	  elif [ "$batt_lvl" -lt 15 2>/dev/null ] ; then
-		  [ "$batt_msg" -eq 0 2>/dev/null ] && notify-send "battery" "battery is VERY low bro, c'mon: $batt_lvl%" && batt_msg=1
+		  [ "$batt_msg" -ne 2 2>/dev/null ] && notify-send "battery" "battery is VERY low bro, c'mon: $batt_lvl%" && batt_msg=2
 	  elif [ "$batt_lvl" -lt 20 2>/dev/null ] ; then
-		  [ "$batt_msg" -eq 0 2>/dev/null ] && notify-send "battery" "hey dude, battery low: $batt_lvl%" && batt_msg=1
+		  [ "$batt_msg" -ne 3 2>/dev/null ] && notify-send "battery" "hey dude, battery low: $batt_lvl%" && batt_msg=3
 	  else
 		  batt_msg=0
 	  fi
@@ -138,8 +144,8 @@ mem() {
 }
 
 wlan() {
-  # net_icon=`printf "%s%s%s\n" "$wifiicon" "$(sed "s/down//;s/up//" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"`
-  net_icon=`printf "%s%s%s\n" "$wifiicon" "$(sed "s/down//;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"`
+  # net_icon=`printf "%s%s%s\n" "$wifiicon" "$(sed "s/down//;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"`
+  net_icon=`printf "%s%s%s\n" "$wifiicon" "$(sed "s/down//;s/up//" /sys/class/net/e*/operstate 2>/dev/null)" "$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"`
 
   if [ X"$net_icon" = X"" ]; then
     printf "^c#bd93f9^^b#0f1113^ $net_icon"
