@@ -30,7 +30,7 @@ music()
     # music_="$title  $name"
 
     # printf "^c#b084f5^ $symbol_ ^c#81A1C1^『$title ^c#abb2bf^ ^c#81A1C1^$name』"
-    printf "^c#b084f5^ $symbol_ ^c#545862^『^c#4a6a8a^$title ^c#abb2bf^ ^c#4a6a8a^$name^c#545862^』^b#161a22^"
+    printf "^c#b084f5^ $symbol_ ^c#545862^『^c#4a6a8a^$title ^c#abb2bf^ ^c#4a6a8a^$name^c#545862^』"
 
   else
     m_symbol_=$(mpc 2>/dev/null | head -n2 | tail -n1| cut -f 1 | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*//g;s/\\[playing\\].*/🎧/g;/^ERROR/Q" | paste -sd ' ' -;)
@@ -49,7 +49,7 @@ music()
 
       # printf "^c#b084f5^^b#11141e^ $music_  $m_symbol_ ^b#1e222a^"
       # printf "^c#81A1C1^$music_ ^c#b084f5^$m_symbol_  ^b#11141e^"
-      printf "^c#b084f5^$m_symbol_ ^c#4a6a8a^$music_^b#161a22^"
+      printf "^c#b084f5^$m_symbol_ ^c#4a6a8a^$music_"
     else
       music_=
     fi
