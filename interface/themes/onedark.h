@@ -1,8 +1,8 @@
 /* static const char black[]       = "#1e222a"; */
 /* static const char black[]       = "#181c24"; */
 /* static const char black[]       = "#171b1f"; */
-/* static const char black[]       = "#010101"; */
-static const char black[]       = "#070707";
+/* static const char black[]       = "#070707"; */
+static const char black[]       = "#0c0c0c";
 static const char gray2[]       = "#2e323a"; // unfocused window border
 static const char gray3[]       = "#545862";
 static const char gray4[]       = "#6d8dad";
@@ -33,4 +33,4 @@ static const char purple9[]     = "#ba8eff";
 /* static const char purple8[]     = "#ba8eff"; */
 /* static const char col_borderbar[]  = "#1e222a"; // inner border */
 /* static const char col_borderbar[]  = "#181c24"; // inner border */
-static const char col_borderbar[]  = "#070707"; // inner border
+static const char col_borderbar[]  = "#0c0c0c"; // inner border
