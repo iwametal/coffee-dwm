@@ -191,6 +191,7 @@ while true; do
   check_batt
 
   # sleep 1 && xsetroot -name "$(update_icon) $updates $(batt) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
-  sleep 1 && xsetroot -name "$(music) $(update_icon) $updates  $(mem) $(batt $batt_param) $(clock) $(wlan) "
+  # sleep 1 && xsetroot -name "$(music) $(update_icon) $updates  $(mem) $(batt $batt_param) $(clock) $(wlan)"
+  sleep 1 && xsetroot -name "$(music) $(update_icon) $updates  $(mem) $(batt $batt_param) $(clock) "
 
 done
