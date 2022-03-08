@@ -30,9 +30,9 @@ static const int vertpadtab         = 33;
 static const int horizpadtabi       = 15;
 static const int horizpadtabo       = 15;
 static const int scalepreview       = 4;
-static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:size=9:antialias:true",
-  "Material Design Icons-Regular:size=9:antialias:true",
-  "noto-cjk:style:medium:size=9:antialias:true",
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:size=9",
+  "Material Design Icons-Regular:size=9",
+  "noto-cjk:style:medium:size=9",
 };
 static const char dmenufont[]       = "monospace:size=9";
 static const int colorfultag        = 1;  /* 0 means use SchemeSel for selected non vacant tag */
