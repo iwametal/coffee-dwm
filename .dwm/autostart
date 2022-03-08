@@ -20,7 +20,7 @@ dwmstatus 2>&1 >/dev/null &
 
 # start dunst
 systemctl start --user dunst
-~/.scripts/dwm/setwallpaper.sh
+~/.scripts/dwm/setwallpaper.sh -l .7 &
 
 # xrdb merge ~/Public/xresources/ocean/.Xresources &
 
@@ -29,5 +29,9 @@ picom -f &
 xbacklight -set 10 &
 
 ~/.dwm/bars/onedark.sh &
+
+brightnessctl s 70
+
+nm-applet &
 
 dwm
