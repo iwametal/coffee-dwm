@@ -32,6 +32,8 @@ xbacklight -set 10 &
 
 brightnessctl s 70
 
+fcitx5 &
+
 nm-applet &
 
 dwm
