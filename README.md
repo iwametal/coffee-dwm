@@ -11,23 +11,23 @@ I'll let all the important things about the interface below, for you to get into
 `some looks:`
 <p align="center">Clean<p/>
 
-![Interface Looks](https://raw.githubusercontent.com/iwametal/dwm/master/resources/img/looks/interface_look_clean.png "Interface Looks")
+![Interface Looks](https://raw.githubusercontent.com/iwametal/coffee-dwm/master/resources/img/looks/interface_look_clean.png "Interface Looks")
 
 <p align="center">Beautiful<p/>
 
-![Interface Looks](https://raw.githubusercontent.com/iwametal/dwm/master/resources/img/looks/interface_look_lainfetch.png "Interface Looks")
+![Interface Looks](https://raw.githubusercontent.com/iwametal/coffee-dwm/master/resources/img/looks/interface_look_lainfetch.png "Interface Looks")
 
 <p align="center">Efficient<p/>
 
-![Interface Looks](https://raw.githubusercontent.com/iwametal/dwm/master/resources/img/looks/interface_look_apps.png "Interface Looks")
+![Interface Looks](https://raw.githubusercontent.com/iwametal/coffee-dwm/master/resources/img/looks/interface_look_apps.png "Interface Looks")
 
 <p align="center">Flexible<p/>
 
-![Interface Looks](https://raw.githubusercontent.com/iwametal/dwm/master/resources/img/looks/interface_look_apps0.png "Interface Looks")
+![Interface Looks](https://raw.githubusercontent.com/iwametal/coffee-dwm/master/resources/img/looks/interface_look_apps0.png "Interface Looks")
 
 <p align="center">Extensible<p/>
 
-![Interface Looks](https://raw.githubusercontent.com/iwametal/dwm/master/resources/img/looks/interface_look_apps1.png "Interface Looks")
+![Interface Looks](https://raw.githubusercontent.com/iwametal/coffee-dwm/master/resources/img/looks/interface_look_apps1.png "Interface Looks")
 
 <p align="center">last update: Feb 1<sup>st</sup>, 2021</p>
 
