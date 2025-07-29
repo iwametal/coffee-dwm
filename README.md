@@ -40,7 +40,7 @@ $ chmod -R 755 ~/.dwm/*.sh
 $ ln -s ~/.dwm/layoutmenu.sh /usr/bin/layoutmenu.sh # might need sudo
 $ mkdir -p ~/.local/share/fonts
 $ cp fonts/* ~/.local/share/fonts
-$ cd dwm
+$ cd interface
 $ # change `/home/coffee/.dwm/layoutmenu.sh` to `/home/youruser/.dwm/layoutmenu.sh` inside interface/config.def.h
 $ make clean install # might need sudo
 ```
