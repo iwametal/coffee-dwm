@@ -1,11 +1,11 @@
 # COFFEE's DWM
 
 ## <sup>layer 1</sup> ABOUT
-This is my coffee's DWM, with all resources I value, mostly efficiency and performance, but also with a simplistic beauty look. I made these configs thinking in optimize both my work and daily usage the maximum as possible, with functions, rules and shortcuts for all considerable and frequently used programs, applications, tools and even personal scripts. It took a while, but I'm really happy with the result and probably will never get used to another interface again.
+This is my coffee's DWM, with all resources I value, mostly efficiency and performance,  with a simplistic beauty look. I created these configs thinking in optimize both my work and daily usage the maximum as possible, with functions, rules and shortcuts for all considerable and frequently used programs, applications, tools and even personal scripts. It took a while, but I'm really happy with the result and probably will never get used to another interface again.
 
 ## <sup>layer 2</sup> INFO
-These configurations are based in [chadwm](https://github.com/siduck76/chadwm).
-I'll let all the important things about the interface below, for you to get into it, however you may check the [config.h](https://github.com/iwametal/dwm/blob/master/config.h) file yourself and make your own configurations (actually, you should do that). Also, I'd like to say I got some really useful resources from [Luke Smith](https://github.com/LukeSmithxyz/dwm)'s config, which saved me a lot of time for build my own. So, a special thanks to him and Siduck76, the original creator of chadwm.
+These configurations are  a fork of [chadwm]().
+I'll let all the important things about the interface below, for you to get into it, however you may check the [config.h](https://github.com/iwametal/dwm/blob/master/config.h) file yourself and make your own configurations (actually, you should do that). Also, I'd like to say I got some really useful resources from [chadwm](https://github.com/siduck76/chadwm) and [Luke Smith](https://github.com/LukeSmithxyz/dwm)'s config, which saved me a lot of time for build my own. So, a special them.
 
 
 `some looks:`
@@ -49,7 +49,7 @@ $ make clean install # might need sudo
 ## <sup>layer 4</sup> USAGE
 I use xorg as display server and xinitrc as my dwm launcher. If you want to check, there is my [~/.xinirc](https://github.com/iwametal/linux-config/blob/master/.xinitrc) file. If you opt for the same method, then you just need to type `startx` in your tty, and voilá, your DWM is launched.
 
-So, without further ado, there are all the important things/notes about my DWM:
+So, without further ado, these are all the important things/notes about my DWM:
 ### <sup>layer 4.1</sup> DEPENDENCIES
 Well, of course, after so many configurations, some external programs were used in a couple parts of the code, such as in keyboard shortcuts definitions, for example. So, I made a list of all the dependencies needed for my DWM works 100%. And [there it is](https://github.com/iwametal/dwm/blob/master/dependencies.md).
 
@@ -62,15 +62,15 @@ Some of the commands I use in DWM, calls a script in my machine. So, for you to 
 These scripts must be present in you $HOME directory, otherwise, you'll need to change the call for them inside DWM's [config.h](https://github.com/iwametal/dwm/blob/master/config.h). Your choice.
 
 ### <sup>layer 4.4</sup> DWM BAR
-Last but not least, my DWM bar is completely made by personal scripts. I used dwmblocks for a while, but, with the desire to put something more simplistic (my likes), I made some simple scripts to launch in it. They are also in the [.scripts](https://github.com/iwametal/.scripts) directory I put previously. So, if you clone that, and put in your home directory like mentioned, you should be good. Or you can just adventure yourself in your own scripts or dwmblocks.
+Last but not least, my DWM bar is completely made by personal scripts. I used dwmblocks for a while, but, with the desire to put something more simplistic, I made some simple scripts to launch in it. They are also in the [.scripts](https://github.com/iwametal/.scripts) directory I put previously. So, if you clone that, and put in your home directory like mentioned, you should be good. Or you can just adventure yourself in your own scripts or dwmblocks.
 
 ## <sup>layer 5</sup> NOTES
 Well, that is pretty much it. I'd just like to put some important notes here:
 * All my interface initialization is being handle by my [~/.xinirc](https://github.com/iwametal/linux-config/blob/master/.xinitrc) file, so it is interesting you take a look at it, as the scripts I have for initialization are being called there. For example, my dwm status bar is launch there, so, if you do not have it, your dwm bar will not have the scripts running. Another example is the wallpaper, that is also set there. So, look the end of the file and manage which lines you do or do not want in it.
 
-* Talking about wallpaper... Like said, my wallpaper is set by my [~/.xinirc](https://github.com/iwametal/linux-config/blob/master/.xinitrc) file, and for that it searches for an image called wall.jpeg, wall.jpg or wall.png inside a directory called wallpaper. So, to set your wallpaper, just create a directory with the same name in your $HOME and put the image you want inside it with the name "wall.jpeg", "wall.jpg" or "wall.png". -"Hey Leo, but the image I want have neither of those extensions, what do I do? :confused:". No problem, just add your image extension in [this script](https://github.com/iwametal/.scripts/blob/master/dwm/setwallpaper.sh), just like below:
+* Talking about wallpaper... Like said, my wallpaper is set by my [~/.xinirc](https://github.com/iwametal/linux-config/blob/master/.xinitrc) file, and for that it searches for an image called wall.jpeg, wall.jpg or wall.png inside a directory called wallpaper. So, to set your wallpaper, just create a directory with the same name in your $HOME and put the image you want inside it with the name "wall.jpeg", "wall.jpg" or "wall.png". If you need to use another extension that is not supported in the script, just add it in [this script](https://github.com/iwametal/.scripts/blob/master/dwm/setwallpaper.sh), just like below:
 
-`actual line:`
+`current line:`
 ```
 aux=`[[ -d "$HOME/wallpaper" ]] && cd "$HOME/wallpaper" && ls "wall."{"jpeg","jpg","png"} 2>/dev/null`
 ```
