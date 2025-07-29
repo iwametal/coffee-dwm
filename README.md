@@ -4,7 +4,7 @@
 This is my coffee's DWM, with all resources I value, mostly efficiency and performance,  with a simplistic beauty look. I created these configs thinking in optimize both my work and daily usage the maximum as possible, with functions, rules and shortcuts for all considerable and frequently used programs, applications, tools and even personal scripts. It took a while, but I'm really happy with the result and probably will never get used to another interface again.
 
 ## <sup>layer 2</sup> INFO
-I'll let all the important things about the interface below, for you to get into it, however you may check the [config.h](https://github.com/iwametal/dwm/blob/master/config.h) file yourself and make your own configurations (actually, you should do that). Also, I'd like to say I got some really useful resources from [chadwm](https://github.com/siduck76/chadwm) and [Luke Smith](https://github.com/LukeSmithxyz/dwm)'s config, which saved me a lot of time for build my own. So, a special them.
+I'll let all the important things about the interface below, for you to get into it, however you may check the [config.h](https://github.com/iwametal/dwm/blob/master/config.h) file yourself and make your own configurations (actually, you should do that). Also, I'd like to say I got some really useful resources from [chadwm](https://github.com/siduck76/chadwm) and [Luke Smith](https://github.com/LukeSmithxyz/dwm)'s config, which saved me a lot of time for build my own. So, a special thanks to them.
 
 
 `some looks:`
