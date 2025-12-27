@@ -133,6 +133,7 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
   /* symbol     arrange function */
+  { ":::",      gaplessgrid },
   { "|M|",      centeredmaster }, /* first entry is default */
   { ">M>",      centeredfloatingmaster },
   { "[]=",      tile },
@@ -145,7 +146,6 @@ static const Layout layouts[] = {
   { "HHH",      grid },
   { "###",      nrowgrid },
   { "---",      horizgrid },
-  { ":::",      gaplessgrid },
   { "|+|",      tatami },
   { "><>",      NULL },    /* no layout function means floating behavior */
 };
@@ -304,25 +304,30 @@ static Key keys[] = {
   { MODKEY,			                  XK_d,		   spawn,          SHCMD("dmenu_run") },
 
   // layouts
-  { MODKEY,			      XK_i,	setlayout, {.v = &layouts[0]} }, /* centeredmaster */
-  { MODKEY|ShiftMask, XK_i,	setlayout, {.v = &layouts[1]} }, /* centeredfloatingmaster */
-  { MODKEY,			      XK_t,	setlayout, {.v = &layouts[2]} }, /* tile */
-  { MODKEY|ShiftMask, XK_t,	setlayout, {.v = &layouts[3]} }, /* bstack */
-  { MODKEY,			      XK_y,	setlayout, {.v = &layouts[4]} }, /* spiral */
-  { MODKEY|ShiftMask, XK_y,	setlayout, {.v = &layouts[5]} }, /* dwindle */
-  { MODKEY,			      XK_u,	setlayout, {.v = &layouts[6]} }, /* monocle */
-  { MODKEY|ShiftMask, XK_u,	setlayout, {.v = &layouts[7]} }, /* deck */
+  { MODKEY,           XK_n, setlayout, {.v = &layouts[0]} },/* None */
+  { MODKEY,			      XK_i,	setlayout, {.v = &layouts[1]} }, /* centeredmaster */
+  { MODKEY|ShiftMask, XK_i,	setlayout, {.v = &layouts[2]} }, /* centeredfloatingmaster */
+  { MODKEY,			      XK_t,	setlayout, {.v = &layouts[3]} }, /* tile */
+  { MODKEY|ShiftMask, XK_t,	setlayout, {.v = &layouts[4]} }, /* bstack */
+  { MODKEY,			      XK_y,	setlayout, {.v = &layouts[5]} }, /* spiral */
+  { MODKEY|ShiftMask, XK_y,	setlayout, {.v = &layouts[6]} }, /* dwindle */
+  { MODKEY,			      XK_u,	setlayout, {.v = &layouts[7]} }, /* monocle */
+  { MODKEY|ShiftMask, XK_u,	setlayout, {.v = &layouts[8]} }, /* deck */
+  { MODKEY|ControlMask|ShiftMask,           XK_0, setlayout, {.v = &layouts[9]} },/* None */
+  { MODKEY|Mod1Mask,           XK_0, setlayout, {.v = &layouts[10]} },/* None */
+  { MODKEY|ShiftMask|Mod1Mask,           XK_0, setlayout, {.v = &layouts[11]} },/* None */
+  { MODKEY|ControlMask|Mod1Mask,           XK_0, setlayout, {.v = &layouts[12]} },/* None */
+  { MODKEY|ControlMask|ShiftMask,          XK_t,            setlayout,      {.v = &layouts[13]} },
+  { MODKEY,           XK_0, setlayout, {.v = &layouts[14]} },/* None */
 
   { MODKEY,                                XK_q,      killclient,     {0} },
-  { MODKEY|ShiftMask,                      XK_f,      setlayout,      {.v = &layouts[1]} },
   /* { MODKEY,                                XK_m,      setlayout,      {.v = &layouts[2]} }, */
   /* { MODKEY|ControlMask,                    XK_g,      setlayout,      {.v = &layouts[10]} }, */
-  { MODKEY|ControlMask|ShiftMask,          XK_t,            setlayout,      {.v = &layouts[13]} },
   { MODKEY|ControlMask,		                 XK_bracketleft,  cyclelayout,    {.i = -1 } },
   { MODKEY|ControlMask,                    XK_bracketright, cyclelayout,    {.i = +1 } },
   { MODKEY|ShiftMask,                      XK_space,        togglefloating, {0} },
   { MODKEY,                                XK_f,            togglefullscr,  {0} },
-  { MODKEY,                                XK_0,            view,           {.ui = ~0 } },
+  { MODKEY|ControlMask,                    XK_0,            view,           {.ui = ~0 } },
   { MODKEY|ShiftMask,                      XK_0,            tag,            {.ui = ~0 } },
   /* { MODKEY,                                XK_comma,        focusmon,       {.i = -1 } }, */
   /* { MODKEY,                                XK_period,       focusmon,       {.i = +1 } }, */
